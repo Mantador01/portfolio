@@ -184,6 +184,11 @@ h3 {
 #hero3d {
   width: 100%;
   height: 100%;
+  cursor: grab;
+}
+
+#hero3d:active {
+  cursor: grabbing;
 }
 
 .visual-caption {
@@ -197,7 +202,15 @@ h3 {
   color: var(--muted);
   background: rgba(8, 11, 18, 0.72);
   backdrop-filter: blur(14px);
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
   font-size: 0.9rem;
+}
+
+#terrainStatus {
+  color: var(--accent);
+  text-align: right;
 }
 
 .intro-grid,
@@ -420,5 +433,212 @@ h3 {
 
   .button {
     width: 100%;
+  }
+}
+
+/* Viewer terrain */
+.hero-visual,
+.terrain-viewer-card {
+  position: relative;
+  overflow: hidden;
+}
+
+#hero3d,
+.terrain-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  cursor: grab;
+}
+
+#hero3d:active,
+.terrain-canvas:active {
+  cursor: grabbing;
+}
+
+.terrain-switcher {
+  position: absolute;
+  z-index: 5;
+  left: 16px;
+  top: 16px;
+  right: 16px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  pointer-events: none;
+}
+
+.terrain-button {
+  pointer-events: auto;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 7px 12px;
+  color: var(--muted);
+  background: rgba(8, 11, 18, 0.64);
+  backdrop-filter: blur(12px);
+  font: inherit;
+  font-size: 0.82rem;
+  cursor: pointer;
+}
+
+.terrain-button:hover,
+.terrain-button.active {
+  color: #021016;
+  border-color: transparent;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+}
+
+.terrain-status {
+  position: absolute;
+  z-index: 5;
+  right: 16px;
+  bottom: 16px;
+  max-width: calc(100% - 32px);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 7px 12px;
+  color: var(--accent);
+  background: rgba(8, 11, 18, 0.64);
+  backdrop-filter: blur(12px);
+  font-size: 0.82rem;
+  pointer-events: none;
+}
+
+.terrain-viewer-card {
+  min-height: 540px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.03));
+  box-shadow: var(--shadow);
+}
+
+@media (max-width: 860px) {
+  .terrain-viewer-card {
+    min-height: 420px;
+  }
+}
+
+
+/* Boutons de texture PNG */
+.terrain-texture-switcher {
+  left: auto;
+  right: 16px;
+  justify-content: flex-end;
+  max-width: 48%;
+}
+
+.texture-button::before {
+  content: "PNG · ";
+  opacity: 0.72;
+}
+
+@media (max-width: 720px) {
+  .terrain-switcher,
+  .terrain-texture-switcher {
+    left: 12px;
+    right: 12px;
+    max-width: none;
+    justify-content: flex-start;
+  }
+
+  .terrain-texture-switcher {
+    top: 58px;
+  }
+}
+/* Menus déroulants du viewer terrain */
+.terrain-switcher {
+  pointer-events: auto;
+  right: auto;
+  display: block;
+  max-width: calc(50% - 24px);
+}
+
+.terrain-texture-switcher {
+  left: auto;
+  right: 16px;
+  max-width: calc(50% - 24px);
+}
+
+.terrain-select-label {
+  display: grid;
+  gap: 6px;
+  min-width: 220px;
+  color: var(--muted);
+  font-size: 0.78rem;
+}
+
+.terrain-select-label span {
+  padding-left: 4px;
+}
+
+.terrain-select {
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 9px 12px;
+  color: var(--text);
+  background: rgba(8, 11, 18, 0.82);
+  backdrop-filter: blur(12px);
+  font: inherit;
+  font-size: 0.86rem;
+  cursor: pointer;
+  outline: none;
+}
+
+.terrain-select:hover,
+.terrain-select:focus {
+  border-color: var(--accent);
+}
+
+@media (max-width: 720px) {
+  .terrain-switcher,
+  .terrain-texture-switcher {
+    left: 12px;
+    right: 12px;
+    max-width: none;
+  }
+
+  .terrain-texture-switcher {
+    top: 76px;
+  }
+
+  .terrain-select-label {
+    min-width: 0;
+  }
+}
+
+.hero-text a,
+.detail-card a,
+.section-heading a {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.hero-text a:hover,
+.detail-card a:hover,
+.section-heading a:hover {
+  text-decoration: underline;
+}
+
+.terrain-quality-switcher {
+  left: 50%;
+  transform: translateX(-50%);
+  max-width: 240px;
+}
+
+@media (max-width: 720px) {
+  .terrain-quality-switcher {
+    left: 12px;
+    right: 12px;
+    top: 76px;
+    transform: none;
+    max-width: none;
+  }
+
+  .terrain-texture-switcher {
+    top: 140px;
   }
 }

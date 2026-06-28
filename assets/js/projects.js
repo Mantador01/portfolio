@@ -15,56 +15,87 @@ export const projects = [
       "Gestion des attributs temporels PointData et CellData",
       "Écriture chunkée pour limiter les pics mémoire",
       "Tests de stress sur plusieurs dizaines de millions de points",
-      "Analyse de crashs natifs liés à la mémoire, au disque et aux gros append"
+      "Analyse de crashs natifs liés à la mémoire, au disque et aux gros append",
     ],
     difficulties: [
       "Éviter les écritures trop massives en une seule fois",
       "Garder une structure compatible VTKHDF",
       "Comprendre les contraintes de thread-safety HDF5",
-      "Produire des fichiers lisibles par les outils de visualisation"
+      "Produire des fichiers lisibles par les outils de visualisation",
     ],
     results: [
       "Writer plus stable sur gros datasets",
       "Gestion explicite du chunking des données",
       "Meilleure compréhension des limites mémoire/disque",
-      "Base solide pour des visualisations temporelles lourdes"
+      "Base solide pour des visualisations temporelles lourdes",
     ],
     tags: ["C++", "VTK", "HDF5", "HighFive", "Performance", "3D"],
     github: "https://github.com/ton-pseudo/vtkhdf-writer",
     demo: "",
-    video: ""
+    video: "",
   },
   {
     id: "unity-terrain",
-    title: "Terrain procédural Unity",
-    subtitle: "Unity / C# / LOD / Perlin Noise",
-    cover: "assets/media/unity.svg",
-    type: "Projet 3D temps réel",
-    year: "2025",
+    title: "Modélisation procédurale de mondes virtuels",
+    subtitle: "C++ / Terrain Modeling / A* / Érosion / Three.js",
+    cover: "assets/media/map.png",
+    type: "Projet universitaire M2 — Modélisation de Mondes Virtuels",
+    report: "assets/media/rapport-mmv-cottier.pdf",
+    year: "2026",
     short:
-      "Génération d’un terrain procédural avec bruit de Perlin, niveaux de détail et déplacement caméra temps réel.",
-    description:
-      "Projet Unity orienté rendu temps réel. Le but est de générer une scène 3D navigable et optimisée avec des chunks, du LOD et des paramètres modifiables.",
+      "Projet de terrain modeling combinant génération procédurale, descripteurs de relief, routes adaptées à la topographie, érosion et visualisation interactive de terrains 3D.",
+    description: `
+      Projet réalisé dans le cadre de l’UE
+      <a href="https://perso.liris.cnrs.fr/eric.galin/M2/Landscapes/" target="_blank" rel="noreferrer">
+      Modélisation de Mondes Virtuels   
+      </a>.
+      L’objectif était d’expérimenter plusieurs techniques de génération, d’analyse
+      et de transformation de terrains 3D : couverture neigeuse basée sur altitude
+      et pente, génération de routes par A*, terrassement automatique, placement
+      procédural de villes, simulation de trafic, érosion hydraulique et thermique.
+    `,
     role: [
-      "Implémentation du déplacement caméra",
-      "Génération de terrain par bruit de Perlin",
-      "Gestion de chunks et niveaux de détail",
-      "Tests de performance en scène temps réel"
+      "Implémentation d’une simulation de couverture neigeuse basée sur l’altitude, la pente et une transition progressive pour éviter les coupures visuelles nettes",
+      "Développement d’un pathfinding A* sur grille avec fonction de coût pénalisant les pentes trop fortes",
+      "Ajout d’un système de terrassement automatique : aplatissement de la chaussée, déblai/remblai et transition douce avec le terrain",
+      "Génération procédurale de villes par sampling avec contraintes géographiques : altitude, pente et distance minimale",
+      "Construction d’un réseau routier reliant les villes, puis simulation simple d’agents de trafic sur les routes générées",
+      "Implémentation d’une érosion hydraulique itérative : pluie, écoulement, transport de sédiments, dépôt et évaporation",
+      "Ajout d’une érosion thermique pour stabiliser les pentes et adoucir les pics produits par certaines simulations",
+      "Création d’un outil d’édition manuelle du terrain (God mod) avec projection de rayon et influence gaussienne",
+      "Export des terrains en OBJ/MTL/PNG et intégration dans un viewer Three.js pour les présenter dans le portfolio :)",
     ],
     difficulties: [
-      "Éviter les baisses de FPS lors du chargement des chunks",
-      "Organiser le code C# proprement",
-      "Rendre la scène lisible et démontrable en WebGL"
+      "Transformer des notions théoriques de terrain modeling en comportements visuels compréhensibles",
+      "Équilibrer réalisme et lisibilité visuelle, notamment pour la neige, les routes et l’érosion",
+      "Construire une fonction de coût qui ne cherche pas seulement le chemin le plus court, mais un chemin praticable selon la pente",
+      "Modifier la géométrie du terrain autour des routes sans créer de ruptures trop brutales",
+      "Gérer des simulations itératives sur une grille complète, avec un coût dépendant du nombre d’itérations et de la résolution du terrain",
     ],
     results: [
-      "Scène 3D interactive",
-      "Démo exportable en WebGL",
-      "Base réutilisable pour un mini-jeu ou viewer 3D"
+      "Plusieurs terrains visualisables dans Qt puis par la suite directement dans le portfolio avec changement de modèle et de texture",
+      "Comparaison visuelle de différentes simulations : neige, érosion hydraulique, érosion thermique, routes et textures de descripteurs",
+      "Routes générées en tenant compte du relief, avec contournement des fortes pentes et terrassement de la chaussée",
+      "Système de villes et trafic procédural montrant une première couche d’organisation du monde virtuel",
+      "Viewer WebGL réutilisable pour afficher d’autres terrains exportés",
     ],
-    tags: ["Unity", "C#", "LOD", "Procédural", "3D"],
-    github: "https://github.com/ton-pseudo/unity-terrain",
-    demo: "https://ton-pseudo.itch.io/terrain-demo",
-    video: ""
+    tags: [
+      "C++",
+      "Qt",
+      "Terrain Modeling",
+      "Heightfield",
+      "A*",
+      "Érosion",
+      "Simulation",
+      "Procédural",
+      "OBJ/MTL",
+      "Three.js",
+      "WebGL",
+    ],
+    github: "https://github.com/Mantador01/mmv",
+    demo: "",
+    video: "",
+    terrainViewer: true,
   },
   {
     id: "opencv-segmentation",
@@ -81,22 +112,22 @@ export const projects = [
       "Conversion RGB/HSV",
       "Création de masques",
       "Nettoyage par érosion/dilatation",
-      "Visualisation avant/après"
+      "Visualisation avant/après",
     ],
     difficulties: [
       "Choisir les seuils robustes",
       "Éliminer le bruit",
-      "Produire un résultat clair à montrer"
+      "Produire un résultat clair à montrer",
     ],
     results: [
       "Pipeline lisible",
       "Comparaison avant/après",
-      "Code facilement réutilisable"
+      "Code facilement réutilisable",
     ],
     tags: ["Python", "OpenCV", "Image", "Segmentation"],
     github: "https://github.com/ton-pseudo/opencv-segmentation",
     demo: "",
-    video: ""
+    video: "",
   },
   {
     id: "web-portfolio",
@@ -113,21 +144,21 @@ export const projects = [
       "Développement de la structure HTML/CSS/JS",
       "Création d’un composant de cartes projets",
       "Intégration d’une scène Three.js légère",
-      "Préparation pour GitHub Pages"
+      "Préparation pour GitHub Pages",
     ],
     difficulties: [
       "Rester sobre et clair",
       "Ne pas rendre le site trop lourd",
-      "Mettre en avant le fond technique sans noyer le recruteur"
+      "Mettre en avant le fond technique sans noyer le recruteur",
     ],
     results: [
       "Portfolio rapide",
       "Déploiement gratuit possible",
-      "Code facile à modifier"
+      "Code facile à modifier",
     ],
     tags: ["HTML", "CSS", "JavaScript", "Three.js"],
     github: "https://github.com/ton-pseudo/portfolio-id3d",
     demo: "https://ton-pseudo.github.io/portfolio-id3d/",
-    video: ""
-  }
+    video: "",
+  },
 ];

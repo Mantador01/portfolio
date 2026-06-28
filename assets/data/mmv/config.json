@@ -1,0 +1,428 @@
+{
+  "generatedAt": "2026-06-28T20:53:57",
+  "entries": [
+    {
+      "kind": "model",
+      "label": "Terrain courant",
+      "model": "models/current/terrain_current.obj",
+      "mtl": "models/current/terrain_current.mtl",
+      "texture": "models/current/terrain_current_texture.png",
+      "notes": "Relief courant au moment de l'export",
+      "ms": 1236.84
+    },
+    {
+      "kind": "texture",
+      "label": "Uniform color",
+      "model": "",
+      "mtl": "",
+      "texture": "textures/metrics/00_uniform.png",
+      "notes": "Texture scalaire exportée depuis le radio button dem_uniform",
+      "ms": 127.563
+    },
+    {
+      "kind": "texture",
+      "label": "Hypsometric elevation",
+      "model": "",
+      "mtl": "",
+      "texture": "textures/metrics/01_elevation.png",
+      "notes": "Texture scalaire exportée depuis le radio button dem_elevation",
+      "ms": 200.329
+    },
+    {
+      "kind": "texture",
+      "label": "Normals",
+      "model": "",
+      "mtl": "",
+      "texture": "textures/metrics/02_normals.png",
+      "notes": "Texture scalaire exportée depuis le radio button dem_normals",
+      "ms": 197.036
+    },
+    {
+      "kind": "texture",
+      "label": "Slope gradient norm",
+      "model": "",
+      "mtl": "",
+      "texture": "textures/metrics/03_slope_gradient.png",
+      "notes": "Texture scalaire exportée depuis le radio button dem_slopeGradient",
+      "ms": 210.903
+    },
+    {
+      "kind": "texture",
+      "label": "Slope average",
+      "model": "",
+      "mtl": "",
+      "texture": "textures/metrics/04_slope_average.png",
+      "notes": "Texture scalaire exportée depuis le radio button dem_slopeAvg",
+      "ms": 212.9
+    },
+    {
+      "kind": "texture",
+      "label": "Aspect",
+      "model": "",
+      "mtl": "",
+      "texture": "textures/metrics/05_aspect.png",
+      "notes": "Texture scalaire exportée depuis le radio button dem_aspect",
+      "ms": 215.318
+    },
+    {
+      "kind": "texture",
+      "label": "Eastness",
+      "model": "",
+      "mtl": "",
+      "texture": "textures/metrics/06_eastness.png",
+      "notes": "Texture scalaire exportée depuis le radio button dem_aspect_east",
+      "ms": 213.315
+    },
+    {
+      "kind": "texture",
+      "label": "Northness",
+      "model": "",
+      "mtl": "",
+      "texture": "textures/metrics/07_northness.png",
+      "notes": "Texture scalaire exportée depuis le radio button dem_aspect_north",
+      "ms": 199.169
+    },
+    {
+      "kind": "texture",
+      "label": "Laplacian",
+      "model": "",
+      "mtl": "",
+      "texture": "textures/metrics/08_laplacian.png",
+      "notes": "Texture scalaire exportée depuis le radio button dem_laplacian",
+      "ms": 181.301
+    },
+    {
+      "kind": "texture",
+      "label": "Fractal Laplacian",
+      "model": "",
+      "mtl": "",
+      "texture": "textures/metrics/09_fract_laplacian.png",
+      "notes": "Texture scalaire exportée depuis le radio button dem_fractLaplacian",
+      "ms": 10670.3
+    },
+    {
+      "kind": "texture",
+      "label": "Mean curvature",
+      "model": "",
+      "mtl": "",
+      "texture": "textures/metrics/10_curvature_mean.png",
+      "notes": "Texture scalaire exportée depuis le radio button dem_curvMean",
+      "ms": 249.477
+    },
+    {
+      "kind": "texture",
+      "label": "Gaussian curvature",
+      "model": "",
+      "mtl": "",
+      "texture": "textures/metrics/11_curvature_gaussian.png",
+      "notes": "Texture scalaire exportée depuis le radio button dem_curvGaussian",
+      "ms": 261.269
+    },
+    {
+      "kind": "texture",
+      "label": "Topographic Position Index",
+      "model": "",
+      "mtl": "",
+      "texture": "textures/metrics/12_tpi.png",
+      "notes": "Texture scalaire exportée depuis le radio button dem_tpi",
+      "ms": 222.716
+    },
+    {
+      "kind": "texture",
+      "label": "Local relief",
+      "model": "",
+      "mtl": "",
+      "texture": "textures/metrics/13_local_relief.png",
+      "notes": "Texture scalaire exportée depuis le radio button dem_localRelief",
+      "ms": 659.441
+    },
+    {
+      "kind": "texture",
+      "label": "Ruggedness",
+      "model": "",
+      "mtl": "",
+      "texture": "textures/metrics/14_ruggedness.png",
+      "notes": "Texture scalaire exportée depuis le radio button dem_ruggedness",
+      "ms": 435.671
+    },
+    {
+      "kind": "texture",
+      "label": "Stream area log",
+      "model": "",
+      "mtl": "",
+      "texture": "textures/metrics/15_stream_area_log.png",
+      "notes": "Texture scalaire exportée depuis le radio button dem_streamAreaLog",
+      "ms": 237.27
+    },
+    {
+      "kind": "texture",
+      "label": "Wetness index",
+      "model": "",
+      "mtl": "",
+      "texture": "textures/metrics/16_wetness.png",
+      "notes": "Texture scalaire exportée depuis le radio button dem_wetness",
+      "ms": 237.292
+    },
+    {
+      "kind": "texture",
+      "label": "Stream power",
+      "model": "",
+      "mtl": "",
+      "texture": "textures/metrics/17_stream_power.png",
+      "notes": "Texture scalaire exportée depuis le radio button dem_streamPower",
+      "ms": 261.418
+    },
+    {
+      "kind": "texture",
+      "label": "Sky view approximation",
+      "model": "",
+      "mtl": "",
+      "texture": "textures/metrics/18_skyview_approx.png",
+      "notes": "Texture scalaire exportée depuis le radio button dem_skyviewApprox",
+      "ms": 208.26
+    },
+    {
+      "kind": "texture",
+      "label": "Geomorphons",
+      "model": "",
+      "mtl": "",
+      "texture": "textures/metrics/19_geomorphons.png",
+      "notes": "Texture scalaire exportée depuis le radio button dem_geomorphons",
+      "ms": 434.953
+    },
+    {
+      "kind": "texture",
+      "label": "Landforms TPI class",
+      "model": "",
+      "mtl": "",
+      "texture": "textures/metrics/20_landforms_tpi_class.png",
+      "notes": "Texture scalaire exportée depuis le radio button dem_tpiClass",
+      "ms": 584.962
+    },
+    {
+      "kind": "texture",
+      "label": "Vegetation suitability - baseline",
+      "model": "",
+      "mtl": "",
+      "texture": "textures/vegetation/baseline_suitability.png",
+      "notes": "steps=80 seed=0.02 growth=0.6 death=0.15 diffusion=0.08 slopeMax=35 wetMu=0 wetSigma=1",
+      "ms": 176.558
+    },
+    {
+      "kind": "texture",
+      "label": "Vegetation density - baseline",
+      "model": "",
+      "mtl": "",
+      "texture": "textures/vegetation/baseline_density.png",
+      "notes": "Simulation vegetation density, steps=80",
+      "ms": 200.864
+    },
+    {
+      "kind": "texture",
+      "label": "Vegetation suitability - selective_slope",
+      "model": "",
+      "mtl": "",
+      "texture": "textures/vegetation/selective_slope_suitability.png",
+      "notes": "steps=80 seed=0.02 growth=0.6 death=0.15 diffusion=0.08 slopeMax=12 wetMu=0 wetSigma=1",
+      "ms": 204.367
+    },
+    {
+      "kind": "texture",
+      "label": "Vegetation density - selective_slope",
+      "model": "",
+      "mtl": "",
+      "texture": "textures/vegetation/selective_slope_density.png",
+      "notes": "Simulation vegetation density, steps=80",
+      "ms": 177.997
+    },
+    {
+      "kind": "texture",
+      "label": "Vegetation suitability - wide_wetness",
+      "model": "",
+      "mtl": "",
+      "texture": "textures/vegetation/wide_wetness_suitability.png",
+      "notes": "steps=80 seed=0.02 growth=0.6 death=0.15 diffusion=0.08 slopeMax=35 wetMu=0 wetSigma=50",
+      "ms": 190.165
+    },
+    {
+      "kind": "texture",
+      "label": "Vegetation density - wide_wetness",
+      "model": "",
+      "mtl": "",
+      "texture": "textures/vegetation/wide_wetness_density.png",
+      "notes": "Simulation vegetation density, steps=80",
+      "ms": 176.38
+    },
+    {
+      "kind": "texture",
+      "label": "Vegetation suitability - low_diffusion",
+      "model": "",
+      "mtl": "",
+      "texture": "textures/vegetation/low_diffusion_suitability.png",
+      "notes": "steps=120 seed=0.02 growth=0.6 death=0.15 diffusion=0.01 slopeMax=35 wetMu=0 wetSigma=50",
+      "ms": 171.088
+    },
+    {
+      "kind": "texture",
+      "label": "Vegetation density - low_diffusion",
+      "model": "",
+      "mtl": "",
+      "texture": "textures/vegetation/low_diffusion_density.png",
+      "notes": "Simulation vegetation density, steps=120",
+      "ms": 172.351
+    },
+    {
+      "kind": "texture",
+      "label": "Vegetation suitability - high_diffusion",
+      "model": "",
+      "mtl": "",
+      "texture": "textures/vegetation/high_diffusion_suitability.png",
+      "notes": "steps=120 seed=0.02 growth=0.6 death=0.15 diffusion=0.35 slopeMax=35 wetMu=0 wetSigma=50",
+      "ms": 170.537
+    },
+    {
+      "kind": "texture",
+      "label": "Vegetation density - high_diffusion",
+      "model": "",
+      "mtl": "",
+      "texture": "textures/vegetation/high_diffusion_density.png",
+      "notes": "Simulation vegetation density, steps=120",
+      "ms": 130.804
+    },
+    {
+      "kind": "texture",
+      "label": "Vegetation suitability - strong_growth",
+      "model": "",
+      "mtl": "",
+      "texture": "textures/vegetation/strong_growth_suitability.png",
+      "notes": "steps=120 seed=0.04 growth=1.6 death=0.1 diffusion=0.08 slopeMax=35 wetMu=0 wetSigma=50",
+      "ms": 174.823
+    },
+    {
+      "kind": "texture",
+      "label": "Vegetation density - strong_growth",
+      "model": "",
+      "mtl": "",
+      "texture": "textures/vegetation/strong_growth_density.png",
+      "notes": "Simulation vegetation density, steps=120",
+      "ms": 189.077
+    },
+    {
+      "kind": "texture",
+      "label": "Snow cover 500m",
+      "model": "",
+      "mtl": "",
+      "texture": "textures/snow/snow_alt_500m.png",
+      "notes": "Snow line altitude=500m",
+      "ms": 6686.29
+    },
+    {
+      "kind": "texture",
+      "label": "Snow cover 1200m",
+      "model": "",
+      "mtl": "",
+      "texture": "textures/snow/snow_alt_1200m.png",
+      "notes": "Snow line altitude=1200m",
+      "ms": 6659.37
+    },
+    {
+      "kind": "texture",
+      "label": "Snow cover 2200m",
+      "model": "",
+      "mtl": "",
+      "texture": "textures/snow/snow_alt_2200m.png",
+      "notes": "Snow line altitude=2200m",
+      "ms": 6736.48
+    },
+    {
+      "kind": "texture",
+      "label": "Snow cover 3200m",
+      "model": "",
+      "mtl": "",
+      "texture": "textures/snow/snow_alt_3200m.png",
+      "notes": "Snow line altitude=3200m",
+      "ms": 6482.47
+    },
+    {
+      "kind": "texture",
+      "label": "Manual road path overlay",
+      "model": "",
+      "mtl": "",
+      "texture": "textures/roads/road_path_overlay.png",
+      "notes": "Trajectoire de route entre deux points fixes, coût pente élevé",
+      "ms": 6423.03
+    },
+    {
+      "kind": "texture",
+      "label": "Road network overlay",
+      "model": "",
+      "mtl": "",
+      "texture": "textures/roads/road_network_overlay.png",
+      "notes": "Réseau procédural entre 5 villes déterministes",
+      "ms": 6423.94
+    },
+    {
+      "kind": "texture",
+      "label": "Traffic snapshot",
+      "model": "",
+      "mtl": "",
+      "texture": "textures/roads/traffic_snapshot.png",
+      "notes": "Image statique avec voitures jaunes réparties sur le réseau",
+      "ms": 0
+    },
+    {
+      "kind": "model",
+      "label": "Terrain avec route terraformée",
+      "model": "models/road_terraform/terrain_road_terraform.obj",
+      "mtl": "models/road_terraform/terrain_road_terraform.mtl",
+      "texture": "models/road_terraform/terrain_road_terraform_texture.png",
+      "notes": "Route width=15 blend=20",
+      "ms": 7481.32
+    },
+    {
+      "kind": "model",
+      "label": "Thermal erosion soft",
+      "model": "models/thermal_soft/terrain_thermal_soft.obj",
+      "mtl": "models/thermal_soft/terrain_thermal_soft.mtl",
+      "texture": "models/thermal_soft/terrain_thermal_soft_texture.png",
+      "notes": "thermalErode(iter=20, talus=80, rate=0.5)",
+      "ms": 1235.9
+    },
+    {
+      "kind": "model",
+      "label": "Thermal erosion strong",
+      "model": "models/thermal_strong/terrain_thermal_strong.obj",
+      "mtl": "models/thermal_strong/terrain_thermal_strong.mtl",
+      "texture": "models/thermal_strong/terrain_thermal_strong_texture.png",
+      "notes": "thermalErode(iter=80, talus=45, rate=0.5)",
+      "ms": 1905.71
+    },
+    {
+      "kind": "model",
+      "label": "Hydraulic erosion UI parameters",
+      "model": "models/hydraulic_ui/terrain_hydraulic_ui.obj",
+      "mtl": "models/hydraulic_ui/terrain_hydraulic_ui.mtl",
+      "texture": "models/hydraulic_ui/terrain_hydraulic_ui_texture.png",
+      "notes": "Paramètres hydrauliques actuels de l'interface",
+      "ms": 1235.33
+    },
+    {
+      "kind": "model",
+      "label": "Hydraulic erosion strong preset",
+      "model": "models/hydraulic_strong/terrain_hydraulic_strong.obj",
+      "mtl": "models/hydraulic_strong/terrain_hydraulic_strong.mtl",
+      "texture": "models/hydraulic_strong/terrain_hydraulic_strong_texture.png",
+      "notes": "hydraulicErode(iter=800,rain=0.02,evap=0.45,flow=0.12,cap=8,ero=0.25,dep=0.20)",
+      "ms": 1523.3
+    },
+    {
+      "kind": "model",
+      "label": "Sculpted terrain",
+      "model": "models/sculpted/terrain_sculpted_hill.obj",
+      "mtl": "models/sculpted/terrain_sculpted_hill.mtl",
+      "texture": "models/sculpted/terrain_sculpted_hill_texture.png",
+      "notes": "applyBrush(center, radius=1200m, intensity=250m)",
+      "ms": 1698.88
+    }
+  ]
+}
