@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675">
+  <rect width="1200" height="675" fill="#0b1020"/>
+  <rect x="95" y="170" width="420" height="310" rx="28" fill="#101a2b" stroke="#ffffff" stroke-opacity=".12"/>
+  <rect x="685" y="170" width="420" height="310" rx="28" fill="#101a2b" stroke="#ffffff" stroke-opacity=".12"/>
+  <circle cx="305" cy="325" r="90" fill="#9b8cff" opacity=".7"/>
+  <circle cx="895" cy="325" r="95" fill="#69e6ff" opacity=".82"/>
+  <path d="M545 325h105" stroke="#a9b4c7" stroke-width="8" stroke-linecap="round"/>
+  <path d="M630 300 660 325 630 350" stroke="#a9b4c7" stroke-width="8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="70" y="105" fill="#f8fafc" font-family="Arial" font-size="54" font-weight="800">OpenCV Segmentation</text>
+  <text x="70" y="158" fill="#a9b4c7" font-family="Arial" font-size="30">HSV · morphologie · avant / après</text>
+</svg>

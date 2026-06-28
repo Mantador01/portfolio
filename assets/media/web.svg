@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675">
+  <defs><linearGradient id="g" x1="0" x2="1"><stop stop-color="#69e6ff"/><stop offset="1" stop-color="#9b8cff"/></linearGradient></defs>
+  <rect width="1200" height="675" fill="#080b12"/>
+  <rect x="140" y="115" width="920" height="445" rx="32" fill="#111827" stroke="#ffffff" stroke-opacity=".12"/>
+  <circle cx="190" cy="160" r="10" fill="#ff6b6b"/><circle cx="225" cy="160" r="10" fill="#ffd166"/><circle cx="260" cy="160" r="10" fill="#5dd39e"/>
+  <rect x="190" y="220" width="360" height="48" rx="12" fill="url(#g)" opacity=".9"/>
+  <rect x="190" y="295" width="260" height="22" rx="11" fill="#a9b4c7" opacity=".5"/>
+  <rect x="190" y="335" width="420" height="22" rx="11" fill="#a9b4c7" opacity=".33"/>
+  <rect x="190" y="390" width="150" height="46" rx="23" fill="#69e6ff"/>
+  <rect x="675" y="220" width="280" height="210" rx="28" fill="#0b1020" stroke="#69e6ff" stroke-opacity=".28"/>
+  <path d="M725 370 805 260 895 385Z" fill="none" stroke="#69e6ff" stroke-width="6" opacity=".85"/>
+  <text x="70" y="620" fill="#f8fafc" font-family="Arial" font-size="54" font-weight="800">Portfolio Web</text>
+</svg>

@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Alexandre Cottier — Portfolio ID3D</title>
+  <meta name="description" content="Portfolio informatique ID3D : C++, visualisation 3D, VTK, Unity, OpenCV et web." />
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <a class="logo" href="index.html">AC</a>
+    <nav class="nav">
+      <a href="#projets">Projets</a>
+      <a href="#competences">Compétences</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero section">
+      <div class="hero-content">
+        <p class="eyebrow">Master Informatique — ID3D</p>
+        <h1>Portfolio orienté 3D, visualisation scientifique et développement C++.</h1>
+        <p class="hero-text">
+          Je développe des outils graphiques et techniques autour de la 3D : visualisation de maillages,
+          données volumineuses, moteurs temps réel, traitement d’image et applications web.
+        </p>
+        <div class="hero-actions">
+          <a class="button primary" href="#projets">Voir mes projets</a>
+          <a class="button secondary" href="assets/media/cv.pdf" target="_blank" rel="noreferrer">Télécharger mon CV</a>
+        </div>
+      </div>
+
+      <div class="hero-visual" aria-label="Visualisation 3D décorative">
+        <canvas id="hero3d"></canvas>
+        <div class="visual-caption">Mini viewer Three.js — remplaçable par un vrai mesh de projet</div>
+      </div>
+    </section>
+
+    <section class="section intro-grid">
+      <article class="info-card">
+        <h2>Ce que je montre</h2>
+        <p>Des projets avec captures, vidéos, explication technique et lien GitHub.</p>
+      </article>
+      <article class="info-card">
+        <h2>Ce que je valorise</h2>
+        <p>Optimisation, architecture, C++, données 3D, rendu, debugging et contraintes mémoire.</p>
+      </article>
+      <article class="info-card">
+        <h2>Ce que je cherche</h2>
+        <p>Un poste/stage en développement 3D, visualisation, moteur, simulation ou outils techniques.</p>
+      </article>
+    </section>
+
+    <section id="projets" class="section">
+      <div class="section-heading">
+        <p class="eyebrow">Sélection</p>
+        <h2>Projets principaux</h2>
+        <p>Chaque fiche explique le contexte, les choix techniques, les difficultés et le résultat.</p>
+      </div>
+      <div id="projectGrid" class="project-grid"></div>
+    </section>
+
+    <section id="competences" class="section skills-section">
+      <div class="section-heading">
+        <p class="eyebrow">Stack</p>
+        <h2>Compétences</h2>
+      </div>
+      <div class="skills-grid">
+        <div>
+          <h3>3D / Visualisation</h3>
+          <ul class="tag-list">
+            <li>VTK</li><li>VTKHDF</li><li>Three.js</li><li>Unity</li><li>Maillages</li><li>Shaders</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Développement</h3>
+          <ul class="tag-list">
+            <li>C++</li><li>CMake</li><li>Python</li><li>TypeScript</li><li>Git</li><li>OpenCV</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Performance</h3>
+          <ul class="tag-list">
+            <li>Chunking</li><li>HDF5</li><li>Multithreading</li><li>Profiling</li><li>Debug natif</li><li>Mémoire</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section contact-section">
+      <div>
+        <p class="eyebrow">Contact</p>
+        <h2>Me contacter</h2>
+        <p>Remplace les liens ci-dessous par tes vrais profils.</p>
+      </div>
+      <div class="contact-links">
+        <a class="button primary" href="mailto:alexandre@example.com">Email</a>
+        <a class="button secondary" href="https://github.com/ton-pseudo" target="_blank" rel="noreferrer">GitHub</a>
+        <a class="button secondary" href="https://www.linkedin.com/in/ton-profil" target="_blank" rel="noreferrer">LinkedIn</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>© <span id="year"></span> Alexandre Cottier — Portfolio ID3D</p>
+  </footer>
+
+  <script type="module" src="assets/js/main.js"></script>
+  <script type="module" src="assets/js/three-viewer.js"></script>
+</body>
+</html>

@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675">
+  <rect width="1200" height="675" fill="#0a1220"/>
+  <circle cx="830" cy="180" r="250" fill="#9b8cff" opacity=".12"/>
+  <path d="M0 520 C200 420 330 500 520 420 S860 270 1200 410 V675 H0Z" fill="#14223a"/>
+  <path d="M0 580 C260 470 400 560 620 460 S930 360 1200 500 V675 H0Z" fill="#1b3354"/>
+  <path d="M260 430 430 250 600 430Z" fill="#69e6ff" opacity=".55"/>
+  <path d="M480 430 700 185 920 430Z" fill="#9b8cff" opacity=".5"/>
+  <text x="70" y="105" fill="#f8fafc" font-family="Arial" font-size="54" font-weight="800">Unity Terrain</text>
+  <text x="70" y="158" fill="#a9b4c7" font-family="Arial" font-size="30">C# · LOD · terrain procédural</text>
+</svg>
