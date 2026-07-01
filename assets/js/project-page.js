@@ -109,8 +109,7 @@ function mediaSection(project) {
         <p class="eyebrow">Quelques animations..</p>
         <h2>Résultats visuels du projet</h2>
         <p>
-          Les captures ci-dessous montrent les principales simulations réalisées : objet rigide, fluide SPH et collisions
-          événementielles.
+          
         </p>
       </div>
 
@@ -149,10 +148,17 @@ function mediaSection(project) {
 }
 
 function setupImageLightbox() {
+  // Sécurité : si une ancienne lightbox existe déjà, on la supprime.
+  document.querySelectorAll(".image-lightbox").forEach((oldLightbox) => {
+    oldLightbox.remove();
+  });
+
+  document.body.classList.remove("lightbox-open");
+
   const lightbox = document.createElement("div");
   lightbox.className = "image-lightbox";
   lightbox.innerHTML = `
-    <button class="image-lightbox-close" aria-label="Fermer">×</button>
+    <button class="image-lightbox-close" type="button" aria-label="Fermer">×</button>
     <div class="image-lightbox-content">
       <img class="image-lightbox-img" src="" alt="" />
       <p class="image-lightbox-caption"></p>
@@ -166,10 +172,13 @@ function setupImageLightbox() {
   const closeButton = lightbox.querySelector(".image-lightbox-close");
 
   function openLightbox(img, caption = "") {
-    if (!img?.src) return;
+    if (!img) return;
 
-    lightboxImg.src = img.src;
-    lightboxImg.alt = img.alt ?? "";
+    const src = img.currentSrc || img.src;
+    if (!src) return;
+
+    lightboxImg.src = src;
+    lightboxImg.alt = img.alt || "";
     lightboxCaption.textContent = caption || img.alt || "";
     lightbox.classList.add("is-open");
     document.body.classList.add("lightbox-open");
@@ -179,12 +188,12 @@ function setupImageLightbox() {
     lightbox.classList.remove("is-open");
     document.body.classList.remove("lightbox-open");
 
-    // On vide le src pour stopper les gros GIFs si besoin.
     setTimeout(() => {
       if (!lightbox.classList.contains("is-open")) {
-        lightboxImg.src = "";
+        lightboxImg.removeAttribute("src");
+        lightboxCaption.textContent = "";
       }
-    }, 200);
+    }, 150);
   }
 
   document.addEventListener("dblclick", (event) => {
@@ -195,6 +204,7 @@ function setupImageLightbox() {
       const img = screenshotCard.querySelector("img");
       const caption =
         screenshotCard.querySelector("figcaption")?.textContent?.trim() ?? "";
+
       openLightbox(img, caption);
       return;
     }

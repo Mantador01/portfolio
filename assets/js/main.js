@@ -36,3 +36,11 @@ function createProjectCard(project) {
 if (projectGrid) {
   projectGrid.append(...projects.map(createProjectCard));
 }
+
+window.addEventListener("pointermove", (event) => {
+  const x = (event.clientX / window.innerWidth) * 100;
+  const y = (event.clientY / window.innerHeight) * 100;
+
+  document.body.style.setProperty("--mx", `${x}%`);
+  document.body.style.setProperty("--my", `${y}%`);
+});

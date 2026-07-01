@@ -417,4 +417,141 @@ export const projects = [
       },
     ],
   },
+  {
+    id: "unity-ik-spider",
+    title: "Animation procédurale Unity : IK et locomotion d’araignée",
+    subtitle: "Unity / C# / FABRIK / IK / Procedural Animation",
+    cover: "assets/media/chara.jpg",
+    type: "Projet universitaire — Animation de personnage",
+    year: "2026",
+    short:
+      "Projet Unity autour de la cinématique inverse et de l’animation procédurale : IK personnalisée, cibles déplaçables, regard procédural et locomotion d’araignée avec placement automatique des pattes.",
+    description: `
+    Projet réalisé dans le cadre de l’UE 
+        <a href="http://alexandre.meyer.pages.univ-lyon1.fr/m2-animation/" target="_blank" rel="noreferrer">Animation, Corps Articulés et Moteurs Physiques</a>.
+    L’objectif était d’expérimenter l’animation procédurale sous Unity, en partant des notions de
+    squelette, cinématique inverse, contrôle de mouvement et animation par script.
+    Le projet contient une IK personnalisée, un système de cibles manipulables,
+    un regard procédural vers une cible, puis une locomotion d’araignée où les pattes
+    se replacent automatiquement au sol pendant que le corps s’équilibre selon les appuis.
+  `,
+    role: [
+      "Implémentation d’un système de cinématique inverse personnalisé basé sur des chaînes articulées root → effecteur",
+      "Création automatique de plusieurs chaînes IK à partir de couples source/cible",
+      "Fusion des articulations partagées entre chaînes pour gérer plusieurs effecteurs sur un même squelette",
+      "Déplacement interactif des cibles IK au clavier pour tester la réponse du solveur",
+      "Ajout d’un système de regard procédural avec Animator IK et pondération du corps/de la tête",
+      "Implémentation d’un look-at manuel avec limitation d’angle, rotation progressive et interpolation par Slerp",
+      "Création d’une locomotion procédurale d’araignée : chaque patte possède une cible IK projetée au sol par raycast",
+      "Déclenchement automatique d’un pas lorsque la cible d’une patte devient trop éloignée de sa position idéale",
+      "Ajout d’un overshoot et d’une hauteur de pas pour rendre le mouvement des pattes plus naturel",
+      "Équilibrage du corps de l’araignée à partir de la moyenne des positions des pieds et de la normale de support",
+      "Contrôle clavier de l’araignée avec translation et rotation",
+    ],
+    difficulties: [
+      "Construire une IK réutilisable au lieu de dépendre uniquement de l’IK humanoïde fournie par Unity",
+      "Gérer plusieurs chaînes IK partageant certaines articulations sans obtenir de positions incohérentes",
+      "Stabiliser les longueurs des segments pendant la résolution de la chaîne",
+      "Éviter que les pattes de l’araignée glissent au sol ou se déplacent toutes en même temps",
+      "Projeter correctement les cibles au sol avec des raycasts, même lorsque le corps se déplace",
+      "Rendre le corps plus crédible en ajustant sa hauteur et son orientation selon les appuis",
+      "Mélanger animation procédurale, contrôles clavier et contraintes de scène Unity",
+    ],
+    results: [
+      "IK personnalisée fonctionnelle avec cibles interactives",
+      "Système de regard procédural vers une cible, avec pondération du corps et de la tête",
+      "Araignée contrôlable au clavier avec pattes qui se replacent automatiquement",
+      "Placement des pieds au sol par raycast et mouvement de pas avec hauteur/overshoot",
+      "Corps de l’araignée équilibré selon les quatre appuis",
+      "Démo vidéo montrant les comportements procéduraux et les interactions",
+    ],
+    tags: [
+      "Unity",
+      "C#",
+      "Animation procédurale",
+      "Cinématique inverse",
+      "IK",
+      "FABRIK",
+      "Squelette",
+      "LookAt",
+      "Quaternion",
+      "Raycast",
+      "Procedural Locomotion",
+    ],
+    github: "https://github.com/Mantador01/Animation-proc-durale-Unity",
+    report: "",
+    demo: "",
+    video:
+      "https://drive.google.com/drive/folders/1cVRgldJz7exwME5FBPBB2q-q8ZztaGb4?usp=sharing",
+    heroImages: [
+      {
+        src: "assets/media/spider-walk-terrain.webp",
+        alt: "Locomotion procédurale d’araignée",
+      },
+      {
+        src: "assets/media/move.webp",
+        alt: "",
+      },
+      {
+        src: "assets/media/head-look.webp",
+        alt: "",
+      },
+    ],
+    screenshots: [
+      {
+        src: "assets/media/ik1.gif",
+        caption: "Cinématique inverse sur une chaine.",
+      },
+      {
+        src: "assets/media/ik2.webp",
+        caption: "Cinématique inverse sur deux chaines.",
+      },
+      {
+        src: "assets/media/ik3.webp",
+        caption: "On lui rajoute des segments pour faire le lien.",
+      },
+      {
+        src: "assets/media/spider-walk.webp",
+        caption:
+          "On a maintenant un animal (spider), les pattes se replacent automatiquement au sol pendant le déplacement.",
+      },
+      {
+        src: "assets/media/capteur.webp",
+        caption: "On a des target sous les pattes.",
+      },
+      {
+        src: "assets/media/spider-walk-terrain.webp",
+        caption: "Locomotion procédurale d’araignée",
+      },
+      {
+        src: "assets/media/move.webp",
+        caption:
+          "Personnage avec une state machine (avancé, reculer, droite, gauce, les diagonales aussi, et le saut) avec les animations correspondantes.",
+      },
+      {
+        src: "assets/media/head-look.webp",
+        caption: "Regard procédural vers une cible",
+      },
+      {
+        src: "assets/media/parametrable.png",
+        caption: "Mécanisme parametrable à souhait !",
+      },
+      {
+        src: "assets/media/scene.png",
+        caption: "Exemple de GameObjects dans la scene",
+      },
+      {
+        src: "assets/media/ik-script.png",
+        caption: "Le script d'IK animation",
+      },
+      {
+        src: "assets/media/animator.png",
+        caption: "L'animator pour le bipède",
+      },
+      {
+        src: "assets/media/blendtree.png",
+        caption: "Le BlendTree associé.",
+      },
+    ],
+  },
 ];
