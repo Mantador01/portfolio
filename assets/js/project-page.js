@@ -18,6 +18,20 @@ function heroVisual(project) {
     `;
   }
 
+  if (project.heroImages?.length) {
+    return `
+      <div class="project-hero-image-stack">
+        ${project.heroImages
+          .map(
+            (image) => `
+              <img src="${image.src}" alt="${image.alt ?? project.title}" />
+            `,
+          )
+          .join("")}
+      </div>
+    `;
+  }
+
   return `<img class="project-main-image" src="${project.cover}" alt="Aperçu du projet ${project.title}" />`;
 }
 
@@ -84,6 +98,33 @@ function mediaSection(project) {
         <canvas id="projectPLY3d" class="terrain-canvas"></canvas>
         <div id="projectPLYControls" class="terrain-switcher" aria-label="Choix du modèle PLY"></div>
         <div id="projectPLYStatus" class="terrain-status">Chargement...</div>
+      </div>
+    </section>
+  `;
+  }
+  if (project.screenshots?.length) {
+    return `
+    <section class="section media-section">
+      <div class="section-heading">
+        <p class="eyebrow">Quelques animations..</p>
+        <h2>Résultats visuels du projet</h2>
+        <p>
+          Les captures ci-dessous montrent les principales simulations réalisées : objet rigide, fluide SPH et collisions
+          événementielles.
+        </p>
+      </div>
+
+      <div class="screenshot-grid">
+        ${project.screenshots
+          .map(
+            (screenshot) => `
+              <figure class="screenshot-card">
+                <img src="${screenshot.src}" alt="${screenshot.caption}" />
+                <figcaption>${screenshot.caption}</figcaption>
+              </figure>
+            `,
+          )
+          .join("")}
       </div>
     </section>
   `;

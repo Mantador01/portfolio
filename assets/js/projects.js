@@ -230,4 +230,98 @@ export const projects = [
     demo: "",
     video: "",
   },
+  {
+    id: "animation-physique",
+    title: "Animation physique et simulations particulaires",
+    subtitle: "C++ / Rigid Body / SPH / Collisions / Simulation",
+    cover: "assets/media/zara.jpg",
+    type: "Projet universitaire — Animation, Corps Articulés et Moteurs Physiques",
+    year: "2026",
+    short:
+      "Projet de simulation physique combinant objet rigide, collisions, fluide particulaire SPH et simulation événementielle 1D inspirée de l’expérience des collisions de π.",
+    description: `
+    Projet réalisé dans le cadre de l’UE 
+    <a href="https://perso.liris.cnrs.fr/florence.zara/Web/pages_html/M2Animation.html" target="_blank" rel="noreferrer">Animation, Corps Articulés et Moteurs Physiques</a>.
+    Le travail porte sur plusieurs aspects de simulation physique : dynamique d’un objet
+    rigide, intégration temporelle, collisions avec le sol, simulation de fluide par SPH,
+    gestion des frontières, puis une simulation événementielle 1D inspirée de l’expérience
+    des collisions permettant d’approcher les décimales de π.
+  `,
+    role: [
+      "Implémentation de la dynamique d’un objet rigide à partir d’un repère local des sommets et d’une transformation rigide position/rotation",
+      "Calcul de la masse totale, du barycentre, de la vitesse linéaire et de la vitesse angulaire via le tenseur d’inertie",
+      "Mise en place d’une intégration temporelle de type Euler semi-implicite avec amortissement",
+      "Ajout d’une ré-orthonormalisation de la matrice de rotation pour éviter la dérive numérique",
+      "Gestion de collisions avec un plan droit ou incliné, correction de pénétration, frottement et réponse sans rebond",
+      "Implémentation d’une simulation de fluide SPH : calcul des densités, pression, viscosité et accélérations",
+      "Gestion des frontières du fluide dans une boîte avec réflexion amortie des particules",
+      "Ajout d’un mode de simulation événementielle 1D pour compter les collisions entre deux objets et un mur",
+      "Ajout d’un paramètre de masse permettant de reproduire le comportement de l’expérience des collisions de π",
+    ],
+    difficulties: [
+      "Maintenir une transformation rigide cohérente sans déformation du maillage",
+      "Éviter la dérive numérique de la rotation pendant l’intégration",
+      "Gérer les collisions de manière stable avec correction de position et de vitesse",
+      "Calculer les interactions SPH avec une approche simple mais coûteuse en O(n²)",
+      "Trouver des paramètres stables pour la densité, la pression, la viscosité et les frontières",
+      "Éviter de rater des collisions dans le mode π en passant d’un pas de temps classique à une simulation événementielle",
+    ],
+    results: [
+      "Objet rigide animé avec gravité, intégration temporelle et collisions sur plan incliné",
+      "Maillage mis à jour en temps réel à partir de l’état physique courant",
+      "Simulation SPH de particules avec densité, pression, viscosité et collisions contre les frontières",
+      "Réflexion amortie des particules sur une boîte de simulation",
+      "Mode π collisions fonctionnel avec 31 collisions pour un ratio de masses 100:1",
+      "Captures et vidéo de démonstration pour montrer les différents comportements simulés",
+    ],
+    tags: [
+      "C++",
+      "Simulation physique",
+      "Rigid Body",
+      "SPH",
+      "Particules",
+      "Collisions",
+      "Euler semi-implicite",
+      "Moteur physique",
+      "Animation",
+      "π collisions",
+    ],
+    github:
+      "https://github.com/Mantador01/Animation-physique-et-simulations-particulaires",
+    report: "assets/media/rapport-acamp1-cottier.pdf",
+    demo: "",
+    video:
+      "https://drive.google.com/drive/folders/1cVRgldJz7exwME5FBPBB2q-q8ZztaGb4?usp=sharing",
+    screenshots: [
+      {
+        src: "assets/media/proj2.gif",
+        caption:
+          "Simulation d’un objet rigide : intégration, gravité et collision avec un plan incliné",
+      },
+      {
+        src: "assets/media/proj3.gif",
+        caption:
+          "Simulation de fluide SPH avec particules, densité, pression, viscosité et frontières",
+      },
+      {
+        src: "assets/media/proj1.gif",
+        caption:
+          "Mode π collisions : simulation événementielle 1D avec deux objets et un mur",
+      },
+    ],
+    heroImages: [
+      {
+        src: "assets/media/fluid1.png",
+        alt: "",
+      },
+      {
+        src: "assets/media/fluid2.png",
+        alt: "",
+      },
+      {
+        src: "assets/media/fluid3.png",
+        alt: "",
+      },
+    ],
+  },
 ];
