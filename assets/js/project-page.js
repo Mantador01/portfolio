@@ -5,6 +5,21 @@ import {
   TERRAIN_QUALITIES,
 } from "./terrain-data.js";
 import { createTerrainViewer } from "./terrain-viewer.js";
+import { PLY_MODELS } from "./ply-data.js";
+import { createPLYViewer } from "./ply-viewer.js";
+
+function heroVisual(project) {
+  if (project.heroPlyModelId) {
+    return `
+      <div class="project-hero-ply-card">
+        <canvas id="heroProjectPLY3d"></canvas>
+        <div id="heroProjectPLYStatus" class="terrain-status">Chargement...</div>
+      </div>
+    `;
+  }
+
+  return `<img class="project-main-image" src="${project.cover}" alt="Aperçu du projet ${project.title}" />`;
+}
 
 const container = document.querySelector("#projectPage");
 const year = document.querySelector("#year");
@@ -52,6 +67,27 @@ function mediaSection(project) {
       </section>
     `;
   }
+  if (project.plyViewer) {
+    return `
+    <section class="section media-section">
+      <div class="section-heading">
+        <p class="eyebrow">Résultats interactifs</p>
+        <h2>Viewer interactif des modèles géométriques</h2>
+        <p>
+          Cette démo affiche les surfaces générées pendant le projet : blobs,
+          primitives SDF, opérations booléennes, blend lissé, érosion procédurale
+          ou scènes composées. Les modèles sont exportés en PLY.
+        </p>
+      </div>
+
+      <div class="terrain-viewer-card" aria-label="Viewer interactif de modèles PLY">
+        <canvas id="projectPLY3d" class="terrain-canvas"></canvas>
+        <div id="projectPLYControls" class="terrain-switcher" aria-label="Choix du modèle PLY"></div>
+        <div id="projectPLYStatus" class="terrain-status">Chargement...</div>
+      </div>
+    </section>
+  `;
+  }
 
   return `
     <section class="section media-section">
@@ -90,7 +126,7 @@ if (container) {
           ${optionalLink(project.video, "Voir la vidéo")}
         </div>
       </div>
-      <img class="project-main-image" src="${project.cover}" alt="Aperçu du projet ${project.title}" />
+      ${heroVisual(project)}
     </section>
 
     <section class="section project-details-grid">
@@ -123,5 +159,28 @@ if (container) {
       textures: TERRAIN_TEXTURES,
       defaultQuality: "low",
     });
+  }
+  if (project.plyViewer) {
+    createPLYViewer({
+      canvas: "#projectPLY3d",
+      controls: "#projectPLYControls",
+      status: "#projectPLYStatus",
+      models: PLY_MODELS,
+      startIndex: 0,
+    });
+  }
+  if (project.heroPlyModelId) {
+    const heroModel = PLY_MODELS.find(
+      (model) => model.id === project.heroPlyModelId,
+    );
+
+    if (heroModel) {
+      createPLYViewer({
+        canvas: "#heroProjectPLY3d",
+        status: "#heroProjectPLYStatus",
+        models: [heroModel],
+        startIndex: 0,
+      });
+    }
   }
 }

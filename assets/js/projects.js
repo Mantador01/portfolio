@@ -161,4 +161,73 @@ export const projects = [
     demo: "https://ton-pseudo.github.io/portfolio-id3d/",
     video: "",
   },
+  {
+    id: "modelisation-geometrique",
+    title: "Modélisation géométrique implicite",
+    subtitle: "C++ / Qt / Blobs / SDF / Sphere Tracing",
+    cover: "assets/media/implicit_surface_snail_low_res.png",
+    type: "Projet universitaire — Modélisation Géométrique",
+    heroPlyModelId: "submarine-scene",
+    plyViewer: true,
+    year: "2025",
+    short:
+      "Projet de modélisation géométrique autour des surfaces implicites : blobs, primitives SDF, opérations booléennes, blend lissé, sphere tracing, érosion procédurale et génération de terrain.",
+    description: `
+    Projet réalisé dans le cadre de l’UE
+    <a href="https://perso.liris.cnrs.fr/eric.galin/M2/Implicits/" target="_blank" rel="noreferrer">Modélisation Géométrique</a>.
+    L’objectif était d’expérimenter plusieurs représentations géométriques implicites :
+    blobs, champs scalaires, distances signées, opérations booléennes, blend lissé,
+    sphere tracing et génération procédurale de formes. Le projet contient aussi des
+    tests de performance et plusieurs scènes de démonstration, dont une scène sous-marin
+    construite avec des primitives implicites.
+  `,
+    role: [
+      "Implémentation d’un système de blobs basé sur un champ scalaire implicite composé de primitives point et segment",
+      "Utilisation d’un noyau de Wyvill pour obtenir une influence bornée, cubique et lisse aux frontières",
+      "Ajout de paramètres de contrôle comme le rayon, le poids et la couleur des primitives",
+      "Implémentation de primitives SDF : sphère, boîte, capsule et tore",
+      "Implémentation d’opérations booléennes sur SDF : union, intersection, différence et blend lissé",
+      "Comparaison entre union brute et fusion lissée pour obtenir des transitions plus propres entre primitives",
+      "Développement d’un sphere tracing pour détecter l’intersection entre un rayon et une surface implicite",
+      "Création d’un système d’érosion procédurale par impacts successifs de sphères sur une surface implicite",
+      "Comparaison de performances entre évaluation incrémentale et évaluation batch",
+      "Expérimentation d’une génération de terrain procédural par heightmap avec bruit de Perlin, amplitude, fréquence, octaves et coloration par altitude",
+    ],
+    difficulties: [
+      "Comprendre et manipuler des surfaces implicites où la géométrie n’est pas stockée directement comme un maillage",
+      "Trouver un bon compromis entre résolution, qualité du maillage et temps de calcul",
+      "Gérer la fusion progressive des blobs sans produire de formes trop bruitées ou trop coûteuses",
+      "Comparer les performances lorsque le nombre de primitives augmente fortement",
+      "Différencier union brute, intersection, différence et blend lissé dans un système SDF",
+      "Obtenir des effets d’érosion visuellement intéressants sans rendre l’évaluation trop lente",
+      "Paramétrer la génération de terrain pour produire un résultat visuellement crédible/réaliste",
+    ],
+    results: [
+      "Système de blobs capable de fusionner progressivement des sphères et segments en formes lisses",
+      "Benchmarks montrant l’impact du nombre de primitives et de la résolution sur le temps de calcul",
+      "Système SDF modulaire avec primitives et opérations combinables",
+      "Exemples visuels de différence, intersection, union et smooth blend",
+      "Sphere tracing fonctionnel sur surfaces implicites",
+      "Effets d’érosion procédurale : cratères, bosses, formes lissées et formes plus brutes",
+      "Terrain procédural généré par bruit avec coloration par altitude et biomes simples",
+      "Scène finale sous-marin réalisée avec des primitives implicites",
+    ],
+    tags: [
+      "C++",
+      "Qt",
+      "Modélisation géométrique",
+      "Surfaces implicites",
+      "Blobs",
+      "SDF",
+      "Sphere Tracing",
+      "Marching Cubes",
+      "Érosion",
+      "Perlin Noise",
+      "Heightmap",
+    ],
+    github: "https://github.com/Mantador01/modelisation-geometrique",
+    report: "assets/media/rapport-mg-cottier.pdf",
+    demo: "",
+    video: "",
+  },
 ];
