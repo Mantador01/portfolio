@@ -929,7 +929,57 @@ body::after {
   opacity: 0.55;
 }
 
-body > *:not(#threeHomeBackground) {
+body > *:not(#threeHomeBackground):not(.image-lightbox) {
   position: relative;
   z-index: 2;
+}
+/* Correction lightbox au-dessus du fond Three.js */
+.image-lightbox {
+  position: fixed !important;
+  inset: 0 !important;
+  z-index: 99999 !important;
+
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  padding: 32px;
+  background: rgba(3, 6, 12, 0.88);
+  backdrop-filter: blur(12px);
+
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.image-lightbox.is-open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.image-lightbox-content {
+  max-width: min(1200px, 94vw);
+  max-height: 90vh;
+  display: grid;
+  gap: 14px;
+  place-items: center;
+}
+
+.image-lightbox-img {
+  max-width: 100%;
+  max-height: 78vh;
+  object-fit: contain;
+  display: block;
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  background: #171a21;
+  box-shadow: 0 40px 120px rgba(0, 0, 0, 0.75);
+}
+
+.image-lightbox-close {
+  position: fixed !important;
+  top: 22px !important;
+  right: 28px !important;
+  z-index: 100000 !important;
 }
