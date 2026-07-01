@@ -148,6 +148,77 @@ function mediaSection(project) {
   `;
 }
 
+function setupImageLightbox() {
+  const lightbox = document.createElement("div");
+  lightbox.className = "image-lightbox";
+  lightbox.innerHTML = `
+    <button class="image-lightbox-close" aria-label="Fermer">×</button>
+    <div class="image-lightbox-content">
+      <img class="image-lightbox-img" src="" alt="" />
+      <p class="image-lightbox-caption"></p>
+    </div>
+  `;
+
+  document.body.appendChild(lightbox);
+
+  const lightboxImg = lightbox.querySelector(".image-lightbox-img");
+  const lightboxCaption = lightbox.querySelector(".image-lightbox-caption");
+  const closeButton = lightbox.querySelector(".image-lightbox-close");
+
+  function openLightbox(img, caption = "") {
+    if (!img?.src) return;
+
+    lightboxImg.src = img.src;
+    lightboxImg.alt = img.alt ?? "";
+    lightboxCaption.textContent = caption || img.alt || "";
+    lightbox.classList.add("is-open");
+    document.body.classList.add("lightbox-open");
+  }
+
+  function closeLightbox() {
+    lightbox.classList.remove("is-open");
+    document.body.classList.remove("lightbox-open");
+
+    // On vide le src pour stopper les gros GIFs si besoin.
+    setTimeout(() => {
+      if (!lightbox.classList.contains("is-open")) {
+        lightboxImg.src = "";
+      }
+    }, 200);
+  }
+
+  document.addEventListener("dblclick", (event) => {
+    const screenshotCard = event.target.closest(".screenshot-card");
+    const heroImage = event.target.closest(".project-hero-image-stack img");
+
+    if (screenshotCard) {
+      const img = screenshotCard.querySelector("img");
+      const caption =
+        screenshotCard.querySelector("figcaption")?.textContent?.trim() ?? "";
+      openLightbox(img, caption);
+      return;
+    }
+
+    if (heroImage) {
+      openLightbox(heroImage, heroImage.alt);
+    }
+  });
+
+  closeButton.addEventListener("click", closeLightbox);
+
+  lightbox.addEventListener("click", (event) => {
+    if (event.target === lightbox) {
+      closeLightbox();
+    }
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+      closeLightbox();
+    }
+  });
+}
+
 if (container) {
   container.innerHTML = `
     <section class="section project-hero">
@@ -224,4 +295,5 @@ if (container) {
       });
     }
   }
+  setupImageLightbox();
 }

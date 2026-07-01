@@ -324,4 +324,97 @@ export const projects = [
       },
     ],
   },
+  {
+    id: "bipede-fsm-optimization",
+    title: "Optimisation de locomotion bipède",
+    subtitle: "C++ / FSM / Animation / Optimisation / Physique",
+    cover: "assets/media/pronost.png",
+    type: "Projet universitaire — Animation, Corps Articulés et Moteurs Physiques",
+    year: "2026",
+    short:
+      "Projet d’animation physique autour d’un bipède : optimisation automatique des paramètres de marche, interpolation non linéaire, contrôle de vitesse, interactions environnementales et nouvelle FSM d’agenouillement.",
+    description: `
+    Projet réalisé dans le cadre de l’UE 
+        <a href="https://perso.liris.cnrs.fr/nicolas.pronost/UCBL/M2ANIM/" target="_blank" rel="noreferrer">Animation, Corps Articulés et Moteurs Physiques</a>.
+    L’objectif était d’améliorer le comportement d’un contrôleur de locomotion basé sur
+    une machine à états finis : optimisation automatique des angles de marche, lissage
+    des transitions, contrôle de vitesse en temps réel, ajout d’interactions physiques
+    comme une cape ou une force de traînée, puis création d’un nouvel état permettant
+    au personnage de s’agenouiller et de se relever.
+  `,
+    role: [
+      "Implémentation d’une stratégie d’optimisation automatique des paramètres angulaires de marche",
+      "Mise en place d’un Hill Climbing avec mutation adaptative pour tester de nouvelles configurations de marche",
+      "Définition d’une fonction de coût combinant distance parcourue, énergie consommée et pénalité de chute",
+      "Ajout d’une décroissance de l’amplitude de mutation pour stabiliser l’optimisation au fil des itérations",
+      "Remplacement de transitions linéaires par une interpolation cubique SmoothStep afin de lisser les mouvements",
+      "Ajout d’un contrôle temporel en temps réel via un multiplicateur de vitesse dans la FSM",
+      "Paramétrage d’interactions physiques environnementales : cape en soft body et traînée de type fluide/boue",
+      "Création d’une nouvelle FSM où le personnage passe à genou puis se relève en conservant son équilibre",
+      "Analyse des logs d’optimisation pour suivre les records de distance et l’intérêt de continuer ou non les itérations",
+    ],
+    difficulties: [
+      "Optimiser un grand nombre de paramètres angulaires sans faire diverger physiquement le bipède",
+      "Construire une fonction de coût équilibrée entre distance, énergie et chute",
+      "Éviter des mouvements trop robotiques causés par l’interpolation linéaire",
+      "Stabiliser les transitions entre états pour réduire les pics de couple",
+      "Faire varier la vitesse de locomotion sans casser les poses cibles de la FSM",
+      "Ajouter une phase d’agenouillement et de relèvement sans que le personnage tombe",
+      "Identifier le moment où l’optimisation n’apporte presque plus de gain significatif",
+    ],
+    results: [
+      "Locomotion améliorée par optimisation automatique des paramètres de marche",
+      "Mouvements plus fluides grâce à l’interpolation cubique SmoothStep",
+      "Contrôle de vitesse en temps réel permettant d’accélérer ou de ralentir le personnage",
+      "Ajout d’interactions physiques : cape articulée et zone de traînée type boue/neige",
+      "Nouvelle machine à états permettant au personnage de s’agenouiller puis de se relever",
+      "Résultat obtenu : environ 11.80 mètres parcourus en 5 secondes après optimisation",
+      "Analyse de logs montrant la progression des records et la stagnation après plusieurs centaines d’itérations",
+    ],
+    tags: [
+      "C++",
+      "Animation",
+      "FSM",
+      "Locomotion",
+      "Bipède",
+      "Hill Climbing",
+      "Optimisation",
+      "SmoothStep",
+      "Contrôle moteur",
+      "Soft Body",
+      "Simulation physique",
+    ],
+    github: "https://github.com/Mantador01/Optimisation-de-locomotion-bip-de",
+    report: "assets/media/rapport-acamp2-cottier.pdf",
+    demo: "",
+    video:
+      "https://drive.google.com/drive/folders/1cVRgldJz7exwME5FBPBB2q-q8ZztaGb4?usp=sharing",
+    heroImages: [
+      {
+        src: "assets/media/pronost2.gif",
+        alt: "",
+      },
+      {
+        src: "assets/media/pronost5.png",
+        alt: "",
+      },
+    ],
+    screenshots: [
+      {
+        src: "assets/media/pronost3.gif",
+        caption:
+          "Contrôle temporel, cape soft body et traînée fluide/boue appliquée au bipède",
+      },
+      {
+        src: "assets/media/pronost1.gif",
+        caption:
+          "Nouvelle FSM : le personnage s’agenouille puis se relève en gardant l’équilibre",
+      },
+      {
+        src: "assets/media/pronost4.gif",
+        caption:
+          "Contrôle temporel temps réel : modification de la vitesse de locomotion au clavier via un multiplicateur de temps dans la FSM",
+      },
+    ],
+  },
 ];
