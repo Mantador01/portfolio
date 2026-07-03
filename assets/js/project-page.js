@@ -130,20 +130,7 @@ function mediaSection(project) {
   }
 
   return `
-    <section class="section media-section">
-      <div class="section-heading">
-        <p class="eyebrow">Médias</p>
-        <h2>Comment montrer ce projet</h2>
-        <p>
-          Ajoute ici une vidéo courte, des captures, des GIFs ou un lien vers une démo. Pour un projet lourd,
-          montre une version simplifiée plutôt que les vrais fichiers volumineux.
-        </p>
-      </div>
-      <div class="media-placeholder">
-        <p>Remplace ce bloc par une vidéo :</p>
-        <code>&lt;video src="assets/media/mon-projet.mp4" controls&gt;&lt;/video&gt;</code>
-      </div>
-    </section>
+
   `;
 }
 

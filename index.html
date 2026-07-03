@@ -9,9 +9,30 @@
 </head>
 <body>
   <canvas id="threeHomeBackground"></canvas>
+
+<div id="acEasterHint" class="ac-easter-hint" aria-hidden="true">
+  explosion ici
+</div>
+
+<svg id="acEasterArrow" class="ac-easter-arrow" aria-hidden="true">
+  <defs>
+    <marker
+      id="acArrowHead"
+      markerWidth="10"
+      markerHeight="10"
+      refX="8"
+      refY="3"
+      orient="auto"
+      markerUnits="strokeWidth"
+    >
+      <path d="M0,0 L0,6 L9,3 z"></path>
+    </marker>
+  </defs>
+  <path id="acEasterArrowPath"></path>
+</svg>
+
   <header class="site-header">
-    <a class="logo" href="index.html">AC</a>
-    <nav class="nav">
+<a class="brand" id="brandExplosion" href="index.html" aria-label="Accueil">AC</a>    <nav class="nav">
       <a href="#projets">Projets</a>
       <a href="#competences">Compétences</a>
       <a href="#contact">Contact</a>
@@ -36,6 +57,7 @@
       <div class="hero-visual" aria-label="Viewer terrain 3D">
         <canvas id="hero3d"></canvas>
       </div>
+      
     </section>
     
     <section id="projets" class="section">
@@ -95,5 +117,6 @@
   <script type="module" src="assets/js/main.js"></script>
   <script type="module" src="assets/js/home-terrain.js"></script>
   <script type="module" src="assets/js/home-background.js"></script>
+  <script type="module" src="assets/js/ac-hint.js"></script>
 </body>
 </html>

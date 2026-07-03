@@ -1,40 +1,5 @@
 export const projects = [
   {
-    id: "vtkhdf-writer",
-    title: "Writer VTKHDF haute performance",
-    subtitle: "C++ / VTK / HDF5 / HighFive",
-    cover: "assets/media/vtkhdf.svg",
-    type: "Projet stage / recherche appliquée",
-    year: "2026",
-    short:
-      "Développement et optimisation d’un writer C++ capable d’écrire de très grands maillages temporels au format VTKHDF.",
-    description:
-      "Ce projet porte sur l’écriture performante de données scientifiques 3D volumineuses. L’objectif est de produire des fichiers exploitables dans VTK/ParaView tout en contrôlant la mémoire, les offsets temporels et les contraintes HDF5.",
-    role: [
-      "Migration d’une partie du code h5pp vers HighFive",
-      "Gestion des attributs temporels PointData et CellData",
-      "Écriture chunkée pour limiter les pics mémoire",
-      "Tests de stress sur plusieurs dizaines de millions de points",
-      "Analyse de crashs natifs liés à la mémoire, au disque et aux gros append",
-    ],
-    difficulties: [
-      "Éviter les écritures trop massives en une seule fois",
-      "Garder une structure compatible VTKHDF",
-      "Comprendre les contraintes de thread-safety HDF5",
-      "Produire des fichiers lisibles par les outils de visualisation",
-    ],
-    results: [
-      "Writer plus stable sur gros datasets",
-      "Gestion explicite du chunking des données",
-      "Meilleure compréhension des limites mémoire/disque",
-      "Base solide pour des visualisations temporelles lourdes",
-    ],
-    tags: ["C++", "VTK", "HDF5", "HighFive", "Performance", "3D"],
-    github: "https://github.com/ton-pseudo/vtkhdf-writer",
-    demo: "",
-    video: "",
-  },
-  {
     id: "unity-terrain",
     title: "Modélisation procédurale de mondes virtuels",
     subtitle: "C++ / Terrain Modeling / A* / Érosion / Three.js",
@@ -96,70 +61,6 @@ export const projects = [
     demo: "",
     video: "",
     terrainViewer: true,
-  },
-  {
-    id: "opencv-segmentation",
-    title: "Segmentation d’image OpenCV",
-    subtitle: "Python / OpenCV / HSV / Morphologie",
-    cover: "assets/media/opencv.svg",
-    type: "Projet vision par ordinateur",
-    year: "2025",
-    short:
-      "Pipeline de segmentation basé sur masques HSV, opérations morphologiques et extraction de régions d’intérêt.",
-    description:
-      "Projet de traitement d’image visant à isoler des objets ou zones spécifiques à partir d’images en utilisant différentes étapes de prétraitement.",
-    role: [
-      "Conversion RGB/HSV",
-      "Création de masques",
-      "Nettoyage par érosion/dilatation",
-      "Visualisation avant/après",
-    ],
-    difficulties: [
-      "Choisir les seuils robustes",
-      "Éliminer le bruit",
-      "Produire un résultat clair à montrer",
-    ],
-    results: [
-      "Pipeline lisible",
-      "Comparaison avant/après",
-      "Code facilement réutilisable",
-    ],
-    tags: ["Python", "OpenCV", "Image", "Segmentation"],
-    github: "https://github.com/ton-pseudo/opencv-segmentation",
-    demo: "",
-    video: "",
-  },
-  {
-    id: "web-portfolio",
-    title: "Portfolio web interactif",
-    subtitle: "HTML / CSS / JavaScript / Three.js",
-    cover: "assets/media/web.svg",
-    type: "Projet web personnel",
-    year: "2026",
-    short:
-      "Site portfolio statique avec pages projets, design responsive et mini visualisation 3D intégrée.",
-    description:
-      "Ce portfolio sert à présenter proprement mes projets techniques avec une interface simple, rapide et hébergeable gratuitement.",
-    role: [
-      "Développement de la structure HTML/CSS/JS",
-      "Création d’un composant de cartes projets",
-      "Intégration d’une scène Three.js légère",
-      "Préparation pour GitHub Pages",
-    ],
-    difficulties: [
-      "Rester sobre et clair",
-      "Ne pas rendre le site trop lourd",
-      "Mettre en avant le fond technique sans noyer le recruteur",
-    ],
-    results: [
-      "Portfolio rapide",
-      "Déploiement gratuit possible",
-      "Code facile à modifier",
-    ],
-    tags: ["HTML", "CSS", "JavaScript", "Three.js"],
-    github: "https://github.com/ton-pseudo/portfolio-id3d",
-    demo: "https://ton-pseudo.github.io/portfolio-id3d/",
-    video: "",
   },
   {
     id: "modelisation-geometrique",
@@ -551,6 +452,192 @@ export const projects = [
       {
         src: "assets/media/blendtree.png",
         caption: "Le BlendTree associé.",
+      },
+    ],
+  },
+  {
+    id: "opengl-deferred-rungholt",
+    title: "Rendu OpenGL d’une ville 3D avec optimisation",
+    subtitle: "C++ / OpenGL / GLSL / Deferred Rendering / Frustum Culling",
+    cover: "assets/media/mc.png",
+    type: "Projet universitaire M2 — Synthèse d’image 3D",
+    year: "2025",
+    short:
+      "Projet OpenGL autour du rendu d’une scène 3D complexe : caméra FPS, navigation walkable, rendu direct, rendu différé avec G-buffer et optimisation par frustum culling.",
+    description: `
+    Projet réalisé dans le cadre de l’UE 
+    <a href="https://perso.univ-lyon1.fr/jean-claude.iehl/Public/educ/M2PROIMA/2025/tp2.html" target="_blank" rel="noreferrer">Synthèse d’image 3D</a>.
+    L’objectif était de rendre
+    une scène 3D conséquente d'une map du jeu Minecraft -> 'Rungholt' en OpenGL, puis d’améliorer l’expérience
+    et les performances : caméra FPS au niveau du sol, grille de navigation walkable,
+    éclairage avec nombreuses lumières ponctuelles, rendu différé par G-buffer et
+    optimisation CPU par frustum culling sur des chunks de scène.
+  `,
+    role: [
+      "Remplacement d’une caméra Orbiter par une caméra FPS avec déplacement ZQSD/WASD et orientation clavier",
+      "Création d’une grille de navigation à partir du mesh de la ville pour bloquer les déplacements hors zones autorisées",
+      "Échantillonnage du sol avec une fonction sample_ground retournant l’altitude et le caractère walkable d’une case",
+      "Construction de la grille walkable en filtrant les triangles horizontaux orientés vers le haut et selon leur matériau",
+      "Mise en place d’un rendu direct avec un grand nombre de lumières ponctuelles animées dans la scène",
+      "Implémentation d’un rendu différé avec framebuffer et G-buffer : couleur diffuse, normales, positions et profondeur",
+      "Écriture d’un shader G-buffer puis d’une deuxième passe d’éclairage lisant les textures du G-buffer",
+      "Calcul de l’éclairage diffus par pixel avec accumulation des contributions des lumières",
+      "Découpage spatial de la scène en chunks pour pouvoir optimiser un gros mesh unique",
+      "Réorganisation des triangles par groupes afin de rendre les triangles d’un même chunk contigus dans le VBO",
+      "Calcul d’une AABB par chunk et test de visibilité contre les six plans du frustum",
+      "Extraction du frustum depuis la matrice MVP selon l’approche de Gribb/Hartmann",
+      "Ajout d’un mode de debug permettant de visualiser l’effet du culling en maintenant une touche",
+    ],
+    difficulties: [
+      "Passer d’une caméra de visualisation à une vraie navigation FPS sans traverser les zones non praticables",
+      "Construire une navigation utilisable à partir d’un mesh de scène et de ses matériaux",
+      "Gérer le coût important du rendu direct lorsque le nombre de lumières augmente",
+      "Mettre en place correctement les textures multiples du G-buffer et les relire dans la passe différée",
+      "Rendre une scène volumineuse constituée d’un seul gros mesh difficile à filtrer objet par objet",
+      "Découper spatialement la scène sans casser l’ordre ou l’organisation des triangles dans le rendu",
+      "Déboguer le frustum culling, notamment les cas où des chunks disparaissent alors qu’ils sont encore visibles",
+    ],
+    results: [
+      "Navigation FPS dans la ville avec hauteur de caméra adaptée au sol",
+      "Déplacements bloqués automatiquement lorsque la zone n’est pas walkable",
+      "Rendu de la scène avec nombreuses lumières ponctuelles animées",
+      "Rendu différé fonctionnel avec G-buffer et passe d’éclairage séparée",
+      "Optimisation par chunking de la scène et frustum culling CPU",
+      "Affichage de logs indiquant le nombre de triangles visibles après culling",
+      "Mode de debug permettant de comparer la scène complète et les chunks réellement affichés",
+    ],
+    tags: [
+      "C++",
+      "OpenGL",
+      "GLSL",
+      "Synthèse d’image",
+      "Deferred Rendering",
+      "G-buffer",
+      "Shader",
+      "Frustum Culling",
+      "AABB",
+      "Chunking",
+      "FPS Camera",
+      "Rungholt",
+    ],
+    github: "https://github.com/Mantador01/synthese-d-image-3D-TP2",
+    report: "assets/media/rapport-si3d-cottier.pdf",
+    demo: "",
+    video: "",
+    heroImages: [
+      {
+        src: "assets/media/tri.png",
+        alt: "",
+      },
+      {
+        src: "assets/media/culling1.png",
+        alt: "",
+      },
+      {
+        src: "assets/media/culling2.png",
+        alt: "",
+      },
+    ],
+  },
+  {
+    id: "montecarlo-raytracing",
+    title: "Ray tracing Monte Carlo et illumination globale",
+    subtitle: "C++ / Ray Tracing / Monte Carlo / Möller-Trumbore",
+    cover: "assets/media/indirect1.png",
+    type: "Projet universitaire M2 — Synthèse d’image 3D",
+    year: "2025",
+    short:
+      "Projet de rendu par lancer de rayons : intersection triangle, coordonnées barycentriques, normales interpolées, éclairage Monte Carlo, échantillonnage direct des sources et éclairage indirect diffus.",
+    description: `
+    Projet réalisé dans le cadre de l’UE 
+    <a href="https://perso.univ-lyon1.fr/jean-claude.iehl/Public/educ/M2PROIMA/2025/tp3.html" target="_blank" rel="noreferrer">Synthèse d’image 3D</a>.
+    L’objectif était
+    d’implémenter plusieurs étapes d’un moteur de rendu par lancer de rayons :
+    génération de rayons caméra, intersection rayon-triangle, visualisation des
+    barycentres et normales, estimation Monte Carlo de la lumière, échantillonnage
+    direct des triangles émissifs et ajout d’un rebond indirect diffus pour obtenir
+    un premier effet de color bleeding.
+  `,
+    role: [
+      "Génération d’un rayon caméra pour chaque pixel en reconstruisant les points near/far par inversion des matrices viewport, projection et vue",
+      "Implémentation de l’intersection rayon-triangle avec l’algorithme de Möller-Trumbore",
+      "Conservation de l’intersection la plus proche avec un paramètre t positif",
+      "Récupération des coordonnées barycentriques du point d’intersection",
+      "Visualisation de debug des barycentres avec une couleur du type (1-u-v, u, v)",
+      "Interpolation des normales par coordonnées barycentriques puis affichage de abs(n) pour vérifier l’orientation",
+      "Mise en place d’un éclairage Monte Carlo par échantillonnage de directions dans l’hémisphère",
+      "Test de visibilité vers le ciel ou vers une source lumineuse pour produire ombres et illumination diffuse",
+      "Création d’une liste de triangles émissifs pondérés par leur aire pour échantillonner directement les sources lumineuses",
+      "Calcul d’un éclairage direct plus efficace en tirant des points directement sur les triangles lumineux",
+      "Ajout d’un éclairage indirect avec un rebond diffus pour simuler la lumière réfléchie par les surfaces",
+      "Ajout de modes d’exécution séparés pour afficher les normales, barycentres, éclairage direct, éclairage direct par émetteur et éclairage indirect",
+    ],
+    difficulties: [
+      "Passer correctement d’un pixel écran à un rayon dans l’espace de la scène",
+      "Déboguer les intersections triangle et vérifier les coordonnées barycentriques",
+      "Gérer le bruit inhérent aux estimateurs Monte Carlo",
+      "Comprendre la différence entre échantillonnage uniforme de l’hémisphère et échantillonnage direct des sources lumineuses",
+      "Réduire le bruit de l’éclairage direct en visant explicitement les triangles émissifs",
+      "Ajouter un rebond indirect sans exploser le coût de calcul",
+      "Obtenir un rendu lisible malgré le compromis entre nombre d’échantillons, bruit et temps de rendu",
+    ],
+    results: [
+      "Ray tracer capable d’intersecter une scène triangle par triangle",
+      "Visualisation des barycentres pour vérifier les intersections",
+      "Visualisation des normales interpolées pour contrôler l’orientation des surfaces",
+      "Éclairage Monte Carlo avec ombres portées",
+      "Éclairage direct par échantillonnage de triangles émissifs avec moins de grain",
+      "Éclairage indirect à un rebond diffus montrant un effet de color bleeding",
+      "Modes de rendu séparés pour comparer facilement les différentes étapes du TP",
+    ],
+    tags: [
+      "C++",
+      "Ray Tracing",
+      "Monte Carlo",
+      "Möller-Trumbore",
+      "Barycentres",
+      "Normals",
+      "Direct Lighting",
+      "Indirect Lighting",
+      "Color Bleeding",
+      "Cornell Box",
+      "Synthèse d’image",
+    ],
+    github: "https://github.com/Mantador01/synthese-d-image-3D-TP3",
+    report: "assets/media/rapport-si3dtp3-cottier.pdf",
+    demo: "",
+    video: "",
+    heroImages: [
+      {
+        src: "assets/media/indirect1.png",
+        alt: "Éclairage indirect avec un rebond diffus",
+      },
+    ],
+    screenshots: [
+      {
+        src: "assets/media/normals.png",
+        caption:
+          "Mode 0 — Normales : interpolation barycentrique des normales puis affichage de abs(n) pour vérifier l’orientation des surfaces",
+      },
+      {
+        src: "assets/media/barycentric.png",
+        caption:
+          "Mode 1 — Barycentres : intersection rayon-triangle avec Möller-Trumbore et affichage de la couleur (1-u-v, u, v)",
+      },
+      {
+        src: "assets/media/direct_sky.png",
+        caption:
+          "Mode 2 — Éclairage direct : estimation Monte Carlo par directions tirées dans l’hémisphère, avec visibilité vers le ciel et ombres portées",
+      },
+      {
+        src: "assets/media/direct_emit_area.png",
+        caption:
+          "Mode 3 — Éclairage direct par émetteur : tirage de points directement sur les triangles lumineux, pondérés par leur aire, pour réduire le bruit",
+      },
+      {
+        src: "assets/media/indirect1.png",
+        caption:
+          "Mode 4 — Éclairage indirect : ajout d’un rebond diffus pour faire apparaître la lumière réfléchie et le color bleeding",
       },
     ],
   },

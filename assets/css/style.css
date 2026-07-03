@@ -929,7 +929,7 @@ body::after {
   opacity: 0.55;
 }
 
-body > *:not(#threeHomeBackground):not(.image-lightbox) {
+body > *:not(#threeHomeBackground):not(.image-lightbox):not(.ac-easter-hint):not(.ac-easter-arrow) {
   position: relative;
   z-index: 2;
 }
@@ -982,4 +982,491 @@ body > *:not(#threeHomeBackground):not(.image-lightbox) {
   top: 22px !important;
   right: 28px !important;
   z-index: 100000 !important;
+}
+
+/* Réduction de l'espace vide entre l'accueil et les projets */
+.hero,
+.hero-section,
+.home-hero {
+  min-height: auto !important;
+  padding-top: 40px !important;
+  padding-bottom: 20px !important;
+}
+
+#projets,
+.projects-section,
+.projects,
+.project-list-section {
+  margin-top: 0 !important;
+  padding-top: 35px !important;
+}
+
+/* Easter egg explosion sur le bouton AC */
+.site-explosion .hero h1,
+.site-explosion .hero-text,
+.site-explosion .hero-actions,
+.site-explosion .project-card,
+.site-explosion .section-heading,
+.site-explosion .terrain-viewer-card {
+  animation: explosionShake 0.7s cubic-bezier(.36,.07,.19,.97) both;
+}
+
+.site-explosion .project-card:nth-child(2n),
+.site-explosion .hero-actions {
+  animation-name: explosionShakeAlt;
+}
+
+.site-explosion .brand {
+  animation: brandExplosion 0.75s ease both;
+}
+
+@keyframes explosionShake {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+    filter: none;
+  }
+  20% {
+    transform: translate(-8px, 5px) rotate(-1.5deg);
+    filter: drop-shadow(0 0 12px rgba(102, 230, 255, 0.6));
+  }
+  40% {
+    transform: translate(10px, -6px) rotate(1.3deg);
+  }
+  60% {
+    transform: translate(-5px, 4px) rotate(-0.8deg);
+  }
+  80% {
+    transform: translate(4px, -2px) rotate(0.4deg);
+  }
+  100% {
+    transform: translate(0, 0) rotate(0deg);
+    filter: none;
+  }
+}
+
+@keyframes explosionShakeAlt {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  25% {
+    transform: translate(7px, -5px) rotate(1.4deg);
+  }
+  50% {
+    transform: translate(-9px, 4px) rotate(-1deg);
+  }
+  75% {
+    transform: translate(4px, 3px) rotate(0.5deg);
+  }
+  100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+}
+
+@keyframes brandExplosion {
+  0% {
+    transform: scale(1);
+    box-shadow: none;
+  }
+  35% {
+    transform: scale(1.35) rotate(8deg);
+    box-shadow: 0 0 35px rgba(102, 230, 255, 0.9);
+  }
+  70% {
+    transform: scale(0.92) rotate(-5deg);
+  }
+  100% {
+    transform: scale(1) rotate(0deg);
+    box-shadow: none;
+  }
+}
+
+/* Vraie explosion visuelle sur AC */
+body.site-big-explosion::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 9998;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 50% 42%, rgba(255, 255, 255, 0.95), transparent 8%),
+    radial-gradient(circle at 50% 42%, rgba(255, 170, 40, 0.75), transparent 22%),
+    radial-gradient(circle at 50% 42%, rgba(255, 60, 0, 0.35), transparent 40%);
+  animation: explosionFlash 0.75s ease-out both;
+}
+
+.site-big-explosion .hero h1,
+.site-big-explosion .hero-text,
+.site-big-explosion .hero-actions,
+.site-big-explosion .project-card,
+.site-big-explosion .section-heading,
+.site-big-explosion .terrain-viewer-card {
+  animation: bigExplosionShake 1.1s cubic-bezier(.36,.07,.19,.97) both;
+}
+
+.site-big-explosion .project-card:nth-child(2n) {
+  animation-name: bigExplosionShakeAlt;
+}
+
+.site-big-explosion .brand {
+  animation: brandMegaExplosion 0.9s ease both;
+}
+
+@keyframes explosionFlash {
+  0% {
+    opacity: 0;
+    transform: scale(0.2);
+  }
+
+  8% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  35% {
+    opacity: 0.75;
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(1.8);
+  }
+}
+
+@keyframes bigExplosionShake {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+    filter: none;
+  }
+
+  10% {
+    transform: translate(-22px, 12px) rotate(-3deg);
+    filter: drop-shadow(0 0 24px rgba(255, 180, 60, 0.9));
+  }
+
+  20% {
+    transform: translate(26px, -18px) rotate(3deg);
+  }
+
+  35% {
+    transform: translate(-18px, 14px) rotate(-2deg);
+  }
+
+  50% {
+    transform: translate(14px, -10px) rotate(1.5deg);
+  }
+
+  70% {
+    transform: translate(-7px, 5px) rotate(-0.8deg);
+  }
+
+  100% {
+    transform: translate(0, 0) rotate(0deg);
+    filter: none;
+  }
+}
+
+@keyframes bigExplosionShakeAlt {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+
+  15% {
+    transform: translate(18px, -16px) rotate(3deg);
+  }
+
+  30% {
+    transform: translate(-24px, 12px) rotate(-2.5deg);
+  }
+
+  55% {
+    transform: translate(13px, 8px) rotate(1.4deg);
+  }
+
+  80% {
+    transform: translate(-6px, -4px) rotate(-0.6deg);
+  }
+
+  100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+}
+
+@keyframes brandMegaExplosion {
+  0% {
+    transform: scale(1);
+    box-shadow: none;
+  }
+
+  20% {
+    transform: scale(1.75) rotate(18deg);
+    box-shadow:
+      0 0 25px rgba(255, 255, 255, 1),
+      0 0 55px rgba(255, 170, 40, 0.95),
+      0 0 90px rgba(102, 230, 255, 0.8);
+  }
+
+  50% {
+    transform: scale(0.75) rotate(-12deg);
+  }
+
+  100% {
+    transform: scale(1) rotate(0deg);
+    box-shadow: none;
+  }
+}
+
+/* Garde la forme originale du bouton AC */
+.brand,
+#brandExplosion {
+  width: 44px !important;
+  height: 44px !important;
+  min-width: 44px !important;
+  min-height: 44px !important;
+
+  display: grid !important;
+  place-items: center !important;
+
+  border-radius: 16px !important;
+  border: 1px solid var(--line) !important;
+  background: rgba(255, 255, 255, 0.06) !important;
+
+  color: var(--text) !important;
+  font-weight: 800 !important;
+  text-decoration: none !important;
+  line-height: 1 !important;
+
+  overflow: hidden !important;
+  transform-origin: center center !important;
+}
+
+/* Indication "explosion ici" qui fuit la souris */
+.ac-easter-hint {
+  position: fixed !important;
+  left: 0;
+  top: 0;
+  z-index: 80;
+  pointer-events: none;
+
+  padding: 9px 14px;
+  border: 1px solid rgba(102, 230, 255, 0.42);
+  border-radius: 999px;
+
+  color: var(--text);
+  background:
+    radial-gradient(circle at 20% 20%, rgba(255, 170, 40, 0.28), transparent 35%),
+    rgba(10, 14, 24, 0.82);
+
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.05),
+    0 14px 40px rgba(0, 0, 0, 0.28),
+    0 0 24px rgba(102, 230, 255, 0.22);
+
+  backdrop-filter: blur(10px);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+
+  animation: acHintFloat 2.4s ease-in-out infinite;
+  will-change: transform;
+}
+
+.ac-easter-hint::before {
+  content: "";
+  position: absolute;
+  inset: -5px;
+  border-radius: inherit;
+  border: 1px solid rgba(255, 170, 40, 0.18);
+  animation: acHintPulse 1.8s ease-in-out infinite;
+}
+
+.ac-easter-arrow {
+  position: fixed !important;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 79;
+  pointer-events: none;
+  overflow: visible;
+}
+
+#acEasterArrowPath {
+  fill: none;
+  stroke: rgba(255, 170, 40, 0.92);
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-dasharray: 8 8;
+  filter:
+    drop-shadow(0 0 8px rgba(255, 170, 40, 0.9))
+    drop-shadow(0 0 18px rgba(102, 230, 255, 0.25));
+  marker-end: url(#acArrowHead);
+  animation: acArrowDash 0.65s linear infinite;
+}
+
+#acArrowHead path {
+  fill: rgba(255, 170, 40, 0.95);
+}
+
+@keyframes acArrowDash {
+  from {
+    stroke-dashoffset: 0;
+  }
+
+  to {
+    stroke-dashoffset: -16;
+  }
+}
+
+@keyframes acHintFloat {
+  0%, 100% {
+    margin-top: 0;
+  }
+
+  50% {
+    margin-top: -6px;
+  }
+}
+
+@keyframes acHintPulse {
+  0%, 100% {
+    opacity: 0.35;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.9;
+    transform: scale(1.08);
+  }
+}
+
+.site-big-explosion .ac-easter-hint,
+.site-big-explosion .ac-easter-arrow {
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+/* Après la première explosion, on cache seulement le message + la flèche */
+body.ac-explosion-used .ac-easter-hint,
+body.ac-explosion-used .ac-easter-arrow {
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+  transition:
+    opacity 0.35s ease,
+    visibility 0.35s ease;
+}
+
+/* Le message "explosion ici" passe devant la navbar */
+.ac-easter-hint {
+  z-index: 100000 !important;
+}
+
+.ac-easter-arrow {
+  z-index: 99999 !important;
+}
+
+#acEasterArrowPath {
+  position: relative;
+  z-index: 99999 !important;
+}
+
+/* Indication sur les boutons "Voir le rapport" */
+.report-easter-hint {
+  position: fixed !important;
+  left: 0;
+  top: 0;
+  z-index: 100000 !important;
+  pointer-events: none;
+
+  padding: 8px 13px;
+  border: 1px solid rgba(102, 230, 255, 0.5);
+  border-radius: 999px;
+
+  color: var(--text);
+  background:
+    radial-gradient(circle at 20% 20%, rgba(102, 230, 255, 0.25), transparent 36%),
+    rgba(10, 14, 24, 0.86);
+
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.05),
+    0 14px 40px rgba(0, 0, 0, 0.35),
+    0 0 24px rgba(102, 230, 255, 0.28);
+
+  backdrop-filter: blur(10px);
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+
+  animation: reportHintFloat 2.4s ease-in-out infinite;
+  will-change: transform, opacity;
+}
+
+.report-easter-hint::before {
+  content: "";
+  position: absolute;
+  inset: -5px;
+  border-radius: inherit;
+  border: 1px solid rgba(102, 230, 255, 0.2);
+  animation: reportHintPulse 1.8s ease-in-out infinite;
+}
+
+.report-easter-arrow {
+  position: fixed !important;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 99999 !important;
+  pointer-events: none;
+  overflow: visible;
+}
+
+.report-easter-arrow-path {
+  fill: none;
+  stroke: rgba(102, 230, 255, 0.95);
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-dasharray: 8 8;
+  filter:
+    drop-shadow(0 0 8px rgba(102, 230, 255, 0.9))
+    drop-shadow(0 0 18px rgba(255, 170, 40, 0.25));
+  animation: reportArrowDash 0.65s linear infinite;
+}
+
+.report-easter-hint.is-hidden,
+.report-easter-arrow.is-hidden {
+  opacity: 0 !important;
+  visibility: hidden !important;
+}
+
+@keyframes reportArrowDash {
+  from {
+    stroke-dashoffset: 0;
+  }
+
+  to {
+    stroke-dashoffset: -16;
+  }
+}
+
+@keyframes reportHintFloat {
+  0%, 100% {
+    margin-top: 0;
+  }
+
+  50% {
+    margin-top: -6px;
+  }
+}
+
+@keyframes reportHintPulse {
+  0%, 100% {
+    opacity: 0.35;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.9;
+    transform: scale(1.08);
+  }
 }
