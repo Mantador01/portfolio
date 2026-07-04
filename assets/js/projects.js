@@ -944,7 +944,7 @@ export const projects = [
     ],
     github:
       "https://github.com/Mantador01/Simplification-de-maillage-par-Edge-Collapse",
-    report: "assets/media/rapport-simplification-maillage.pdf",
+    report: "assets/media/rapport-gam3-cottier.pdf",
     demo: "",
     video: "",
     screenshots: [
