@@ -107,7 +107,8 @@ function mediaSection(project) {
     <section class="section media-section">
       <div class="section-heading">
         <p class="eyebrow">Quelques animations..</p>
-        <h2>Résultats visuels du projet</h2>
+        <h2>Quelques résultats visuels du projet</h2>
+        <p>  Le rapport du projet, disponible au-dessus, contient plus de résultats et toutes les explications nécessaires, n'hésitez pas ! </hp>
         <p>
           
         </p>
@@ -218,6 +219,7 @@ function setupImageLightbox() {
 
 if (container) {
   container.innerHTML = `
+  
     <section class="section project-hero">
       <div>
         <a class="back-link" href="index.html#projets">← Retour aux projets</a>
@@ -237,7 +239,7 @@ if (container) {
       </div>
       ${heroVisual(project)}
     </section>
-
+${compressionTerminalSection(project)}
     <section class="section project-details-grid">
       <article class="detail-card">
         <h2>Mon travail</h2>
@@ -254,6 +256,7 @@ if (container) {
     </section>
 
     ${mediaSection(project)}
+    
   `;
 
   if (project.terrainViewer) {
@@ -293,4 +296,56 @@ if (container) {
     }
   }
   setupImageLightbox();
+}
+
+function compressionTerminalSection(project) {
+  if (!project.compressionTerminal) return "";
+
+  return `
+    <section class="project-section compression-terminal-section">
+      <div class="section-heading">
+        <span>Démo interactive</span>
+        <h2>Terminal de compression</h2>
+        <p>
+          Simulation des commandes du projet : compilation, compression,
+          décompression, comparaison des filtres et analyse d'entropie.
+        </p>
+      </div>
+
+      <div class="fake-terminal-wrap">
+        <div class="terminal-toolbar">
+          <div class="terminal-dots">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          <div class="terminal-title">compression-bwt-mtf-rle — simulation</div>
+        </div>
+
+        <div class="terminal-presets">
+          <button type="button" data-terminal-command="make">make</button>
+          <button type="button" data-terminal-command="compress repetitif">compress repetitif</button>
+          <button type="button" data-terminal-command="compress normal">compress normal</button>
+          <button type="button" data-terminal-command="compress binary">compress binary</button>
+          <button type="button" data-terminal-command="diff">diff</button>
+          <button type="button" data-terminal-command="equalizer">equalizer</button>
+          <button type="button" data-terminal-command="order">order test</button>
+          <button type="button" data-terminal-command="clear">clear</button>
+        </div>
+
+        <div id="compressionTerminalOutput" class="terminal-output" aria-live="polite"></div>
+
+        <form id="compressionTerminalForm" class="terminal-input-row">
+          <span class="terminal-prompt">user@portfolio:~/compression$</span>
+          <input
+            id="compressionTerminalInput"
+            type="text"
+            autocomplete="off"
+            spellcheck="false"
+            placeholder="tape help, make, compress repetitif..."
+          />
+        </form>
+      </div>
+    </section>
+  `;
 }
