@@ -1469,4 +1469,124 @@ export const projects = [
     demo: "",
     video: "https://youtu.be/SsqCISrSwyM",
   },
+  {
+    id: "robot-vision-ia",
+    title: "Robots autonomes avec vision par ordinateur et IA",
+    subtitle: "Python / OpenCV / ArUco / CSRT / WebSocket / EV3",
+    cover: "assets/media/robot.png",
+    type: "Projet universitaire M1 — Projet innovant",
+    year: "2025",
+    noHeroVisual: true,
+
+    short:
+      "Projet de robotique en équipe : deux robots EV3 pilotés par vision par ordinateur, détection de balles, tracking, IA par machine à états et communication temps réel par WebSocket.",
+    description: `
+    Projet innovant réalisé en équipe autour de robots autonomes capables de détecter,
+    poursuivre et récupérer des balles dans une arène. Ma contribution s’est concentrée
+    sur la partie vision par ordinateur et IA : détection des balles par segmentation couleur,
+    détection des robots par marqueurs ArUco, suivi par tracker CSRT, calcul d’orientation,
+    homographies pour créer une vue 2D de l’arène, sélection de cible et pilotage des robots
+    par différence angulaire. Le système complet repose sur une boucle rétroactive :
+    les caméras observent le terrain, le serveur analyse la scène, puis les ordres sont envoyés
+    aux robots via WebSocket.
+  `,
+    role: [
+      "Développement des scripts de détection et d’IA des robots",
+      "Détection des balles rouges et bleues par conversion HSV et seuillage couleur",
+      "Nettoyage des masques avec opening morphologique pour réduire les faux positifs",
+      "Extraction de contours puis filtrage par aire, rayon et circularité pour conserver les formes quasi-circulaires",
+      "Ajout d’overlays de debug affichant les cercles détectés, le rayon et la circularité des balles",
+      "Détection des robots avec marqueurs ArUco pour obtenir leur position malgré la faible résolution caméra",
+      "Utilisation d’un dictionnaire ArUco DICT_6X6_250 avec paramètres renforcés pour stabiliser la détection",
+      "Calcul du centre du robot à partir des quatre coins du marqueur",
+      "Estimation de l’orientation du robot avec un vecteur centre → coin, puis correction par offset pour l’avant réel",
+      "Mise en place d’une data-association maison pour suivre les balles entre plusieurs frames",
+      "Ajout d’une persistance temporelle : une balle doit être détectée plusieurs frames avant d’être acceptée",
+      "Tolérance de courte perte de détection afin d’éviter que le robot change de cible à cause d’un flash caméra",
+      "Expérimentation du tracking CSRT pour conserver la position du robot entre deux détections ArUco",
+      "Création d’un masque d’arène pour limiter les détections au terrain utile",
+      "Mise en place d’une homographie pour transformer les coordonnées caméra en coordonnées de plan 2D",
+      "Blend entre deux homographies haut/bas pour réduire l’erreur de perspective selon la position verticale",
+      "Calcul de l’angle entre la direction du robot et la balle cible",
+      "Transmission d’une différence angulaire au module de décision pour choisir turnleft, turnright ou forward",
+      "Développement d’une logique IA par états : SEARCHING pour chercher les balles et DELIVERING pour le retour/dépôt",
+      "Ajout d’outils de debug visuel : overlay vidéo, flèches de direction, plan 2D et validation des orientations",
+    ],
+    difficulties: [
+      "Travailler avec des flux caméra de faible résolution, rendant les marqueurs et les objets parfois difficiles à détecter",
+      "Éviter les faux positifs lors de la détection couleur des balles rouges et bleues",
+      "Stabiliser la reconnaissance des robots malgré les pertes ponctuelles des marqueurs ArUco",
+      "Gérer les cas où une balle disparaît brièvement du flux vidéo sans changer immédiatement de cible",
+      "Obtenir une orientation robot fiable, indispensable pour piloter correctement les rotations",
+      "Fusionner les informations de plusieurs caméras avec des angles différents",
+      "Réduire les erreurs de perspective qui dédoublent les positions de balles sur le plan 2D",
+      "Faire un pilotage suffisamment réactif malgré l’imprécision mécanique et visuelle",
+      "Passer d’une API HTTP trop lente à une communication WebSocket beaucoup plus réactive",
+      "Coordonner la partie vision/IA avec les contraintes physiques des deux robots : pince, compartiment, capteurs, chenilles",
+    ],
+    results: [
+      "Système de vision capable de détecter des balles rouges et bleues dans l’arène",
+      "Détection des robots par ArUco avec calcul de position et d’orientation",
+      "Suivi temporel des balles pour éviter les changements de cible causés par des détections instables",
+      "Création d’un plan 2D de l’arène par homographie pour regrouper les positions caméra",
+      "Pilotage automatique basé sur l’écart angulaire entre l’avant du robot et la balle cible",
+      "IA comportementale en machine à états avec phases SEARCHING et DELIVERING",
+      "Communication robot ↔ serveur en WebSocket avec une latence bien plus faible que l’approche HTTP initiale",
+      "Deux robots spécialisés : un Chasseur avec pince/capteur et un Voleur capable de stocker plusieurs balles",
+      "Outils de debug visuel permettant de valider les détections, orientations et décisions du robot",
+      "Architecture complète en boucle fermée : caméra, analyse, décision, commande robot et correction",
+    ],
+    tags: [
+      "Python",
+      "OpenCV",
+      "Computer Vision",
+      "Robotique",
+      "EV3",
+      "ArUco",
+      "HSV Segmentation",
+      "CSRT Tracking",
+      "Homographie",
+      "WebSocket",
+      "State Machine",
+      "IA comportementale",
+      "Raspberry Pi",
+      "Real-time",
+      "Debug Overlay",
+    ],
+    github: "https://github.com/Mantador01/robot-vision-ia",
+    report: "assets/media/rapport-robot-cottier.pdf",
+    demo: "",
+    video: "https://www.youtube.com/watch?v=6_pjbbe1uvI",
+    screenshots: [
+      {
+        src: "assets/media/robot.png",
+        caption:
+          "Robot Chasseur : robot à chenilles avec pince, capteurs et logique de capture d’une balle",
+      },
+      {
+        src: "assets/media/robot1.png",
+        caption:
+          "Robot Chasseur : robot à chenilles avec pince, capteurs et logique de capture d’une balle",
+      },
+      {
+        src: "assets/media/robot2.png",
+        caption:
+          "Robot Voleur : robot conçu comme une prison à balles, capable d’en stocker plusieurs avant livraison",
+      },
+      {
+        src: "assets/media/robot3.png",
+        caption: "Robot Voleur : évolution du design",
+      },
+      {
+        src: "assets/media/robot4.png",
+        caption:
+          "Code robot : architecture moteur avec polymorphisme entre Chasseur et Voleur",
+      },
+      {
+        src: "assets/media/robot5.png",
+        caption:
+          "Infrastructure : boucle caméra → serveur d’analyse → WebSocket → robot, avec correction en temps réel",
+      },
+    ],
+  },
 ];
