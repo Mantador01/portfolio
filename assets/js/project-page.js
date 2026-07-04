@@ -9,6 +9,7 @@ import { PLY_MODELS } from "./ply-data.js";
 import { createPLYViewer } from "./ply-viewer.js";
 
 function heroVisual(project) {
+  if (project.noHeroVisual) return "";
   if (project.heroPlyModelId) {
     return `
       <div class="project-hero-ply-card">
@@ -220,8 +221,7 @@ function setupImageLightbox() {
 if (container) {
   container.innerHTML = `
   
-    <section class="section project-hero">
-      <div>
+      <section class="section project-hero ${project.noHeroVisual ? "project-hero-text-only" : ""}">      <div>
         <a class="back-link" href="index.html#projets">← Retour aux projets</a>
         <p class="eyebrow">${project.type} · ${project.year}</p>
         <h1>${project.title}</h1>
@@ -235,6 +235,7 @@ if (container) {
           ${optionalLink(project.report, "Voir le rapport")}
           ${optionalLink(project.demo, "Voir la démo")}
           ${optionalLink(project.video, "Voir la vidéo")}
+          ${optionalLink(project.brief, project.briefLabel ?? "Voir l’énoncé")}
         </div>
       </div>
       ${heroVisual(project)}

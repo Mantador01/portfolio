@@ -1639,3 +1639,13 @@ body.ac-explosion-used .ac-easter-arrow {
     width: 100%;
   }
 }
+
+/* Projet sans image à droite dans le hero */
+.project-hero.project-hero-text-only {
+  grid-template-columns: 1fr !important;
+}
+
+.project-hero.project-hero-text-only .hero-text,
+.project-hero.project-hero-text-only .project-hero-content {
+  max-width: 980px;
+}

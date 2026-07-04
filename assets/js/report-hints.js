@@ -10,16 +10,10 @@ window.addEventListener("pointermove", (event) => {
 });
 
 function isReportLink(link) {
-  const text = link.textContent.toLowerCase();
-  const href = (link.getAttribute("href") || "").toLowerCase();
+  const text = link.textContent.toLowerCase().trim();
 
-  return (
-    text.includes("rapport") ||
-    href.includes("rapport") ||
-    href.endsWith(".pdf")
-  );
+  return text.includes("rapport");
 }
-
 function createSvgArrow(index) {
   const ns = "http://www.w3.org/2000/svg";
 

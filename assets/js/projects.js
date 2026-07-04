@@ -546,6 +546,7 @@ export const projects = [
     cover: "assets/media/indirect1.png",
     type: "Projet universitaire M2 — Synthèse d’image 3D",
     year: "2025",
+    noHeroVisual: true,
     short:
       "Projet de rendu par lancer de rayons : intersection triangle, coordonnées barycentriques, normales interpolées, éclairage Monte Carlo, échantillonnage direct des sources et éclairage indirect diffus.",
     description: `
@@ -983,6 +984,7 @@ export const projects = [
     cover: "assets/media/compression.png",
     type: "Projet universitaire — Codage, transmission et compression",
     year: "2026",
+    noHeroVisual: true,
 
     short:
       "Implémentation en C d’un pipeline de compression sans perte : transformation de Burrows-Wheeler, Move-To-Front, RLE optimisé sur les zéros et analyse statistique du flux compressé.",
@@ -1375,5 +1377,96 @@ export const projects = [
           "Décimation : anti-aliasing + décimation 8, ce qui donne une image floue mais propre",
       },
     ],
+  },
+  {
+    id: "vit-image-restoration",
+    title: "Vision Transformer pour la restauration d’images",
+    subtitle:
+      "Deep Learning / Vision Transformer / Self-Attention / Inpainting",
+    cover: "assets/media/vit.webp",
+    type: "Projet universitaire M1 — Projet d’ouverture à la recherche",
+    year: "2025",
+    noHeroVisual: true,
+    short:
+      "Sujet d’ouverture à la recherche autour des Transformers appliqués à l’image : compréhension de l’attention, adaptation d’un Vision Transformer et reconstruction locale de patches masqués.",
+    description: `
+    Projet réalisé dans le cadre d’une UE d’ouverture à la recherche. L’objectif était
+    d’étudier les Transformers, d’en comprendre les mécanismes fondamentaux, puis
+    d’en explorer une application en vision par ordinateur. Après une phase de recherche
+    sur les embeddings, la self-attention, la multi-head attention et le masquage, le
+    projet s’est orienté vers la restauration d’images avec un Vision Transformer. L’image
+    est découpée en petits patches traités comme des tokens, auxquels on ajoute un
+    encodage positionnel pour préserver l’organisation spatiale. Le modèle est ensuite
+    entraîné à reconstruire un patch masqué à partir du contexte visible.
+  `,
+    role: [
+      "Étude bibliographique et vulgarisation du fonctionnement des Transformers",
+      "Analyse du mécanisme d’attention : Query, Key, Value, scores d’attention, scaling et softmax",
+      "Compréhension de la multi-head attention et de l’intérêt de plusieurs têtes spécialisées",
+      "Étude du masquage dans les Transformers et de son rôle pour contrôler l’information accessible au modèle",
+      "Transposition du principe des tokens texte aux images via le découpage en patches",
+      "Mise en place du concept de patch embedding : aplatissement du patch puis projection dans un espace latent",
+      "Étude de l’encodage positionnel pour conserver la position spatiale des patches",
+      "Première expérimentation orientée classification, puis identification de la limite pour la restauration d’images",
+      "Redéfinition de la tâche : passer d’une prédiction de classe à une prédiction de pixels manquants",
+      "Test d’une première approche avec masquage d’un seul pixel",
+      "Analyse de l’échec du masquage pixel par pixel, où le modèle tendait à prédire une valeur moyenne",
+      "Mise en place d’une stratégie de patch masking en masquant un bloc 2×2 complet",
+      "Adaptation de la sortie du modèle pour prédire quatre valeurs de pixels au lieu d’une classe",
+      "Génération d’un dataset synthétique de petites images 4×4 avec patch 2×2 masqué aléatoirement",
+      "Entraînement du modèle avec une perte MSE et l’optimiseur Adam",
+      "Analyse qualitative des reconstructions obtenues et des limites du modèle",
+      "Participation à la vidéo de vulgarisation pour expliquer les Transformers et leurs applications",
+    ],
+    difficulties: [
+      "Comprendre une architecture initialement pensée pour le langage naturel puis l’adapter à l’image",
+      "Faire le lien entre token texte et patch image",
+      "Comprendre le rôle exact de Q, K et V dans le mécanisme de self-attention",
+      "Gérer l’importance de l’encodage positionnel pour éviter que les patches soient reconstruits dans le désordre",
+      "Passer d’une tâche de classification à une tâche de reconstruction locale",
+      "Identifier pourquoi la prédiction d’un seul pixel masqué était trop pauvre en contexte",
+      "Définir une tâche de restauration plus exploitable avec un patch 2×2 masqué",
+      "Adapter la sortie du réseau et la fonction de perte à une prédiction de pixels",
+      "Évaluer des résultats visuellement variables et pas toujours parfaits",
+      "Comprendre les limites liées à la petite taille des images, au dataset synthétique et aux hyperparamètres",
+    ],
+    results: [
+      "Production d’un cahier des charges définissant le sujet, les objectifs et les choix techniques autour des Vision Transformers",
+      "Rédaction d’un rapport expliquant les Transformers, la self-attention, la multi-head attention, le masquage et l’adaptation à l’image",
+      "Mise en évidence de l’importance de l’encodage positionnel pour la reconstruction d’images découpées en patches",
+      "Évolution du sujet depuis une approche de classification vers une approche de restauration d’image",
+      "Première tentative avec masquage d’un pixel jugée insuffisante, car le modèle prédisait souvent une valeur moyenne",
+      "Nouvelle stratégie avec masquage d’un patch 2×2 pour forcer le modèle à apprendre un contexte spatial plus riche",
+      "Entraînement sur 5000 images 4×4 générées aléatoirement avec patch 2×2 masqué",
+      "Utilisation d’une loss MSE, de l’optimiseur Adam et d’un entraînement sur 30 époques",
+      "Résultats expérimentaux : environ 35% de reconstructions échouées, 50% acceptables et 15% presque parfaites",
+      "Conclusion positive sur la faisabilité, mais avec des limites sur la stabilité et la qualité des reconstructions",
+      "Perspectives identifiées : meilleur fine-tuning, stratégies de masquage alternatives et passage à des images de plus grande taille",
+      "Réalisation d’une vidéo de vulgarisation d’environ vingt minutes sur les Transformers",
+    ],
+    tags: [
+      "Deep Learning",
+      "Transformers",
+      "Vision Transformer",
+      "ViT",
+      "Self-Attention",
+      "Multi-Head Attention",
+      "Patch Embedding",
+      "Positional Encoding",
+      "Image Restoration",
+      "Inpainting",
+      "Patch Masking",
+      "MSE",
+      "Adam",
+      "Recherche",
+      "IA",
+    ],
+    github:
+      "https://github.com/Mantador01/ouverture-a-la-recherche-vit-inpainting-cifar10",
+    report: "assets/media/rapport-vit-restauration-image.pdf",
+    brief: "assets/media/cahier-des-charges-transformers.pdf",
+    briefLabel: "Voir le cahier des charges",
+    demo: "",
+    video: "https://youtu.be/SsqCISrSwyM",
   },
 ];
